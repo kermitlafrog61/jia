@@ -1,0 +1,58 @@
+{% extends './base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li>
+                    <a href={% url 'main' %}>{% trans "Главная" %}</a>
+                </li>
+                <li>{{ organization.title }}</li>
+            </ol>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+    <!-- ======= Blog Single Section ======= -->
+    <section id="organization" class="blog">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-8 entries">
+                    <article class="entry entry-single">
+                        <div class="d-flex justify-content-end" style="grid-column-gap: 10px;">
+                            <a style="font-size: 30px"
+                               type="button"
+                               role="button"
+                               title="Share on facebook"
+                               href="https://www.facebook.com/sharer/sharer.php?u=https://jia.kg{% url 'organization' organization.id %}"
+                               target="_blank"
+                               rel="noopener"><i class="ri-facebook-circle-fill"></i></a>
+                            <a style="font-size: 30px"
+                               href="https://t.me/share/url?url=https://jia.kg{% url 'organization' organization.id %}&text={{ organization.title }}"
+                               target="_blank"
+                               rel="noopener noreferer"><i class="ri-telegram-fill"></i></a>
+                            <a style="font-size: 30px"
+                               type="button"
+                               role="button"
+                               title="Share on twitter"
+                               href="https://twitter.com/intent/tweet?url=https://jia.kg{% url 'organization' organization.id %}"
+                               rel="noopener noreferer"><i class="ri-twitter-line"></i></a>
+                            <a style="font-size: 30px"
+                               href="https://api.whatsapp.com/send?text=https://jia.kg{% url 'organization' organization.id %}"
+                               target="_blank"
+                               rel="noopener noreferer"><i class="ri-whatsapp-line"></i></a>
+                        </div>
+                        <img src={{ organization.image.url }} alt={{ organization.title }} class="img-fluid">
+                        <h2 class="entry-title">
+                            <a href={% url 'organization' organization.id %}>{{ organization.title }}</a>
+                        </h2>
+                        <div class="entry-content">{{ organization.description|safe }}</div>
+                    </article><!-- End blog entry -->
+                </div>
+                <!-- End blog entries list -->
+            </div>
+        </div>
+    </section>
+    <!-- End Blog Single Section -->
+{% endblock content %}

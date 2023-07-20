@@ -1,0 +1,158 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block head %}
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>JIA</title>
+    <meta content="" name="description">
+
+    <meta content="" name="keywords">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href={% static 'assets/vendor/aos/aos.css' %} rel="stylesheet">
+    <link href={% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %} rel="stylesheet">
+    <link href={% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %} rel="stylesheet">
+    <link href={% static 'assets/vendor/glightbox/css/glightbox.min.css' %} rel="stylesheet">
+    <link href={% static 'assets/vendor/remixicon/remixicon.css' %} rel="stylesheet">
+    <link href={% static 'assets/vendor/swiper/swiper-bundle.min.css' %} rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href={% static 'assets/css/style.css' %} rel="stylesheet">
+
+    <!-- NURS description of the content -->
+    <meta name="description" content={{ news.description|truncatechars:300 }} />
+
+    <!-- NURS Site name -->
+    <meta content="JIA" property="og:site_name" />
+    <meta content="website" property="og:type" />
+
+    <!-- NURS url of the sharing page -->
+    <meta content="{% url 'news_detail' news.id %}" property="og:url" />
+
+    <!-- NURS title of the content -->
+    <meta content={{ news.title }} property="og:title" />
+
+    <!-- NURS description of the content -->
+    <meta content={{ main_page.description|truncatechars:300 }} property="og:description" />
+
+    <!-- NURS images of the content -->
+    <meta
+        content="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic3.tgstat.ru%2Fchannels%2F_0%2F89%2F8996c27442a8dd32b47fba4833cfdc7e.jpg&f=1&nofb=1"
+        property="og:image" />
+    <meta content="600" property="og:image:width" />
+    <meta content="600" property="og:image:height" />
+
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- NURS title of the content -->
+    <meta name="twitter:title" content={{ news.title }}>
+
+    <!-- NURS desc of the content -->
+    <meta name="twitter:description" content={{ main_page.description|truncatechars:300 }}>
+
+    <!-- NURS img of the content -->
+    <meta name="twitter:image" content="https://nikitahl.com/images/icons/twitter-image.png">
+
+    <!-- NURS title of the content -->
+    <meta name="twitter:image:alt" content={{ news.title }}>
+
+    <meta content="https://www.facebook.com/jia.bishkek/" property="og:see_also" />
+    <meta content="https://www.instagram.com/jia.kg/" property="og:see_also" />
+    <meta content="https://twitter.com/jia_bishkek" property="og:see_also" />
+</head>
+{% endblock head %}
+
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href={% url 'main' %}>{% trans "Главная" %}</a></li>
+                <li><a href={% url 'news' %}>{% trans "Новости" %}</a></li>
+                <li>{{ news.title|truncatewords:10 }} ...</li>
+            </ol>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="news_detail" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    <article class="entry entry-single">
+                        <div class="d-flex justify-content-end" style="grid-column-gap: 10px;">
+                            <a style="font-size: 30px" type="button" role="button" title="Share on facebook"
+                                href="https://www.facebook.com/sharer/sharer.php?u=http://46.101.168.250{% url 'news_detail' news.id %}"
+                                target="_blank" rel="noopener"><i class="ri-facebook-circle-fill"></i></a>
+                            <a style="font-size: 30px"
+                                href="https://t.me/share/url?url=http://46.101.168.250{% url 'news_detail' news.id %}&text={{ news.title }}" target="_blank"
+                                rel="noopener noreferer"><i class="ri-telegram-fill"></i></a>
+                            <a style="font-size: 30px" type="button" role="button" title="Share on twitter"
+                                href="https://twitter.com/intent/tweet?url=http://46.101.168.250{% url 'news_detail' news.id %}" rel="noopener noreferer"><i
+                                    class="ri-twitter-line"></i></a>
+                            <a style="font-size: 30px" href="https://api.whatsapp.com/send?text=http://46.101.168.250{% url 'news_detail' news.id %}"
+                                target="_blank" rel="noopener noreferer"><i class="ri-whatsapp-line"></i></a>
+                        </div>
+                        {% if news.banner.url %}
+                            <img src={{ news.banner.url}} alt="" class="img-fluid">
+                        {% else %}
+                            <img src="https://images.unsplash.com/photo-1610720684893-619cd7a5cde5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                            alt="" class="img-fluid">
+                        {% endif %}
+                        <h2 class="entry-title">
+                            <a href={% url 'news_detail' news.slug %}>{{ news.title }}</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
+                                        href={% url 'news_detail' news.slug %}>
+                                        <time datetime="2020-01-01">{{ news.created }}</time>
+                                    </a></li>
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            {{ news.description|safe }}
+                        </div>
+
+
+                    </article><!-- End blog entry -->
+
+                </div><!-- End blog entries list -->
+
+                <div class="col-lg-4">
+
+                    {% include 'include/sidebar.html' %}
+
+                </div><!-- End blog sidebar -->
+
+            </div>
+
+        </div>
+    </section><!-- End Blog Single Section -->
+
+</main><!-- End #main -->
+
+{% endblock content %}

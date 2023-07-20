@@ -1,0 +1,36 @@
+{% load i18n %}
+
+
+<div class="sidebar news">
+
+    <h3 class="sidebar-title">{% trans "Поиск" %}</h3>
+    <div class="sidebar-item search-form">
+        <form action="{% url 'search' %}" method="get">
+            <input type="text" name="search">
+            <button type="submit"><i class="bi bi-search"></i></button>
+        </form>
+    </div><!-- End sidebar search formn-->
+
+    <h3 class="sidebar-title">{% trans "Рубрики" %}</h3>
+    <div class="sidebar-item categories">
+        {% for tag in news_tag %}
+            <ul>
+                <li><a href="{% url 'filter_news' tag.id %}">{{ tag.title }} <span>({{ tag.count }})</span></a></li>
+            </ul>
+        {% endfor %}
+    </div><!-- End sidebar categories-->
+
+    <h3 class="sidebar-title">{% trans "Последние" %}</h3>
+    <div class="sidebar-item recent-posts">
+        {% for related_new in related_news %}
+            <div class="post-item clearfix">
+                <img src={{ related_new.banner.url }} alt="">
+                <h4><a href={% url 'news_detail' related_new.slug %}>{{ related_new.title }}</a></h4>
+                <time datetime="2020-01-01">{{ related_new.created }}</time>
+            </div>
+        {% endfor %}
+
+
+    </div><!-- End sidebar recent posts-->
+
+</div><!-- End sidebar -->

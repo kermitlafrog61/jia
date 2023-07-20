@@ -1,0 +1,121 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+<section class="breadcrumbs">
+    <div class="container">
+
+        <ol>
+            <li><a href={% url 'main' %}>{% trans "Главная" %}</a></li>
+            <li><a href={% url 'direction' %}>{% trans "Дирекция" %}</a></li>
+        </ol>
+    </div>
+</section><!-- End Breadcrumbs -->
+
+<section id="team" class="team">
+
+    <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+            <p>{% trans "Дирекция" %}</p>
+        </header>
+
+        <div class="gy-4 w-100"
+            style="display: flex; flex-direction: column; align-items: center; grid-gap: 30px; margin-bottom: 30px;">
+
+            <div class="direction__directors d-flex align-items-stretch justify-content-center flex-column" data-aos="fade-up"
+                data-aos-delay="100" style="grid-gap: 30px">
+                {% for director in directions %}
+                <div class="member">
+                    <div class="member-img">
+                        <img src={{ director.image.url }} class="img-fluid" alt="">
+                        <div class="social">
+                            {% if director.facebook %}
+                                <a href={{ director.facebook }}><i class="bi bi-facebook"></i></a>
+                            {% else %}
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>{{ director.fullname }}</h4>
+                        <span>{{ director.position }}</span>
+                        <p>{{ director.description|truncatechars:60  }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="row gy-4 w-100">
+                {% for hr in hrs %}
+                <div class="direction__middle d-flex align-items-stretch" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src={{ hr.image.url }} class="img-fluid" alt="">
+                            <div class="social">
+                                {% if hr.facebook %}
+                                    <a href={{ hr.facebook }}><i class="bi bi-facebook"></i></a>
+                                {% else %}
+                                    <a href="#"><i class="bi bi-facebook"></i></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>{{ hr.fullname }}</h4>
+                            <span>{{ hr.position }}</span>
+                            <p>{{ hr.description|truncatechars:60 }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% for branche in branches %}
+
+            <div class="section-header" style="padding: 60px 0 40px;">
+                <p>{{ branche.title }}</p>
+            </div>
+
+            <div class="row gy-4 w-100">
+                {% for info in branche.branch.all %}
+
+                <div class="direction__small d-flex" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src={{ info.image.url }} class="img-fluid" alt="">
+                            <div class="social">
+                                {% if info.facebook %}
+                                    <a href={{ info.facebook }}><i class="bi bi-facebook"></i></a>
+                                {% else %}
+                                    <a href="#"><i class="bi bi-facebook"></i></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>{{ info.fullname }}</h4>
+                            <span>{{ info.position }}</span>
+                            <p>{{ info.description|truncatechars:60}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+    </div>
+
+</section><!-- End Team Section -->
+
+
+
+{% endblock content %}

@@ -1,0 +1,87 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <ol>
+            <li><a href={% url 'main' %}>{% trans "Главная" %}</a></li>
+            <li><a href={% url 'news' %}>{% trans "Новости" %}</a></li>
+        </ol>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+
+<!-- ======= Blog Section ======= -->
+<section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+            <div class="col-lg-8 entries">
+                {% for new in news %}
+
+                <article class="entry">
+                    <div class="entry-img">
+                        {% if new.banner.url %}
+                        <img src={{ new.banner.url}} alt="" class="img-fluid">
+                        {% else %}
+                        <img src="https://images.unsplash.com/photo-1610720684893-619cd7a5cde5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                            alt="" class="img-fluid">
+                        {% endif %}
+                    </div>
+
+                    <h2 class="entry-title">
+                        <a href={% url 'news_detail' new.slug %}>{{ new.title|truncatechars:100 }}</a>
+                    </h2>
+
+                    <div class="entry-meta">
+                        <ul>
+                            <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
+                                    href={% url 'news_detail' new.slug %}>
+                                    <time datetime="2020-01-01">{{ new.created }}</time>
+                                </a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="entry-content">
+                        <div>
+                            {{ new.main_descriotion|truncatechars:300|safe }}
+                        </div>
+                        <div class="read-more">
+                            <a href={% url 'news_detail' new.slug %}>{% trans "Подробнее" %}</a>
+                        </div>
+                    </div>
+
+                </article><!-- End blog entry -->
+                {% endfor %}
+
+                <!-- End blog entry -->
+
+                <div class="blog-pagination">
+                    {% include 'include/pagination.html' %}
+                </div>
+
+            </div><!-- End blog entries list -->
+
+            <div class="col-lg-4">
+
+                {% include 'include/sidebar.html' %}
+
+            </div><!-- End blog sidebar -->
+
+        </div>
+
+    </div>
+</section><!-- End Blog Section -->
+
+
+{% endblock content %}

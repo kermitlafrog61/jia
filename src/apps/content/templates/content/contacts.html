@@ -1,0 +1,87 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href={% url 'main' %}>{% trans "Главная" %}</a></li>
+                <li><a href=#>{% trans "Контакты" %}</a></li>
+            </ol>
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section id="contacts" class="contacts">
+        <header class="section-header">
+            <p>
+                {% trans "Контакты" %}
+            </p>
+        </header>
+
+        <div class="container" data-aos="fade-up">
+            <div class="row contact">
+
+                <div class="contact-img col-12 col-md-6"
+                     style="background: no-repeat linear-gradient(rgba(213, 224, 255, 0.359), rgba(26, 18, 87, 0.793)), url({{ contact.logo.url }}) center / cover;"
+                     alt="">
+                    {{ contact.title }}
+                </div>
+
+                <div class="contact-content col-12 col-md-6">
+
+                    <div class="item">
+                        <i class="ri-road-map-line"></i>
+                        <div class="texts">
+                            <h3>{% trans "Адрес" %}</h3>
+                            <p>{{ contact.address }}</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <i class="ri-phone-line"></i>
+                        <div class="texts">
+                            <h3>{% trans "Телефоны" %}</h3>
+                            {% for phone in contact.contact_phone.all %}
+                                <a href="tel:{{ phone.phone }}" target="_blank"
+                                   rel="noopener noreferr">{{ phone.phone }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <i class="ri-smartphone-fill"></i>
+                        <div class="texts">
+                            <h3>{% trans "Сотовые" %}</h3>
+                            {% for cellular in contact.contact_cellular.all %}
+                                <a href="tel:{{ cellular.phone }}" target="_blank"
+                                   rel="noopener noreferr">{{ cellular.phone }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <i class="ri-mail-line"></i>
+                        <div class="texts">
+                            <h3>
+                                {% trans "Email" %}
+                            </h3>
+                            {% for email in contact.contact_email.all %}
+                                <a href="mailto: {{ email.email }}" target="_blank"
+                                   rel="noopener noreferr">{{ email.email }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+{% endblock content %}

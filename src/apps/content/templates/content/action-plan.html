@@ -1,0 +1,19 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+<section id="action-plan">
+  <div class="container mt-5">
+    <div style="display: flex; flex-direction: column; grid-gap: 30px">
+      {% for action_plan in action_plans %}
+        <img style="width: 100%;" src={{ action_plan.image.url }} alt="">
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

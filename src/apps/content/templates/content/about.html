@@ -1,0 +1,141 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% load filters %}
+
+{% block content %}
+
+<section class="breadcrumbs">
+  <div class="container">
+
+    <ol>
+      <li><a href={% url 'main' %}>{% trans "Главная" %}</a></li>
+      <li>{% trans "О JIA" %}</li>
+    </ol>
+  </div>
+</section><!-- End Breadcrumbs -->
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+
+  <div class="container" data-aos="fade-up">
+    <div class="row gx-0">
+      <header class="section-header">
+        <p>«{% trans "УСПЕШНЫЙ ПРЕДПРИНИМАТЕЛЬ – РАЗВИТАЯ СТРАНА" %}»
+        </p>
+      </header>
+
+
+      <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="content">
+          <h3>{% trans "Об организации" %}</h3>
+          <h2></h2>
+          <p>
+            {% trans "Объединение юридических лиц Бизнес ассоциация JIA создана в 2006 году инициативными и идейными предпринимателями из разных областей Кыргызстана. На сегодня ассоциация является платформой, предлагающей все условия для активного взаимодействия делового сообщества в Кыргызстане. Ассоциация представлена во всех крупных областях страны и объединяет более 1000 представителей малого и среднего бизнеса. В своей деятельности JIA успешно взаимодействует с государственными институтами, международными представительствами и донорскими организациями, гражданским обществом. Бизнес ассоциация JIA имеет представительства в странах с прогрессивной экономикой: в США, Японии, Китае, Украине, Монголии, Индии." %}
+          </p>
+          <!-- <div class="text-center text-lg-start">
+                <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Read More</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div> -->
+        </div>
+      </div>
+
+      <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/DL0d2D8vdg8" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+    </div>
+  </div>
+
+</section><!-- End About Section -->
+
+<!-- ======= Features Section ======= -->
+<section id="features" class="features">
+
+  <div class="container" data-aos="fade-up">
+
+    <header class="section-header">
+      <h2>{% trans "Миссия" %}</h2>
+      <p>{% trans "Развитие инновационного социально ответственного и открытого сообщества предпринимателей во благо развития Кыргызской Республики" %}</p>
+    </header>
+
+
+    <!-- Feature Tabs -->
+    <div class="row feture-tabs" data-aos="fade-up">
+      <div class="col-lg-6">
+        <h3>{% trans "Комитеты" %}</h3>
+        <p>{% trans "Комитеты JIA — это система постоянно действующих отраслевых экспертно-аналитических площадок по ключевым вопросам развития делового сообщества. Основные функции комитетов: организация и проведение регулярных встреч в различных форматах для общения с предпринимателями и представителями власти в целях продвижения интересов бизнеса и общества во благо всей страны. Участие в деятельности комитетов дает членам Ассоциации доступ к информации, открывает возможности для профессионального общения, а также позволяет влиять на формирование стратегической повестки и позиций делового сообщества по ключевым вопросам развития" %}</p>
+
+
+      </div>
+
+      <div class="col-lg-6">
+        <img src={% static 'assets/img/features-2.png' %} class="img-fluid" alt="">
+      </div>
+
+    </div><!-- End Feature Tabs -->
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="row feture-tabs" data-aos="fade-up">
+          <div class="col-lg-6">
+            <h3>{% trans "Комитеты" %}</h3>
+          </div>
+        </div><!-- End Feature Tabs -->
+
+        <div class="col mt-lg-0 d-flex">
+          <div class="row align-self-center gy-4">
+
+            {% for committee in committees %}
+            <div class="col-sm-6" data-aos="zoom-out" data-aos-delay={{ forloop.counter|mul:100|add:100 }}>
+              <div class="feature-box d-flex align-items-center">
+                <i class="bi bi-check"></i>
+                <h3>{{ committee.title }}</h3>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-6">
+        <div class="row feture-tabs" data-aos="fade-up">
+          <div class="col-lg-6">
+            <h3>{% trans "Клубы" %}</h3>
+          </div>
+        </div><!-- End Feature Tabs -->
+
+        <div class="col mt-lg-0 d-flex">
+          <div class="row align-self-center gy-4">
+            {% for club in clubs %}
+            <div class="col-sm-6" data-aos="zoom-out" data-aos-delay={{ forloop.counter|mul:100|add:100 }}>
+              <div class="feature-box d-flex align-items-center">
+                <i class="bi bi-check"></i>
+                <h3>{{ club.title }}</h3>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+</section><!-- End Features Section -->
+
+
+
+{% endblock content %}

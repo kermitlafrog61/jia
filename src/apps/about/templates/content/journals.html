@@ -1,0 +1,50 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href={% url 'main' %}>{% trans "Главная" %}</a></li>
+                <li>{% trans "Журналы" %}</li>
+            </ol>
+        </div>
+    </section><!-- End Breadcrumbs -->
+    <!-- ======= Journals Section ======= -->
+    <section class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="content">
+                    <div class="section-header">
+                        <h2>{% trans "Журналы" %}</h2>
+                    </div>
+                        <div class="journals row">
+                    {% for journal in journals %}
+                        <div class="col-lg-4 col-md-6 mt-2">
+                            <a href="{{ journal.file.url }}" target="_blank" rel="noreferer noopener"
+                               class="journal">
+                                <img src={{ journal.image.url }}
+                                             alt="">
+                                <p>{{ journal.name }}</p>
+                            </a>
+                        </div>
+                    {% endfor %}
+                        </div>
+                    <div class="blog-pagination mt-5">
+                        {% include 'include/pagination.html' %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Journals Section -->
+
+
+
+{% endblock content %}

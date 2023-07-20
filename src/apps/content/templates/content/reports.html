@@ -1,0 +1,47 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href={% url 'main' %}>{% trans "Главная" %}</a></li>
+                <li>{% trans "Отчеты" %}</li>
+            </ol>
+        </div>
+    </section><!-- End Breadcrumbs -->
+    <!-- ======= About Section ======= -->
+
+    <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+            <header class="section-header mt-5">
+                <p>«{% trans "УСПЕШНЫЙ ПРЕДПРИНИМАТЕЛЬ – РАЗВИТАЯ СТРАНА" %}»
+                </p>
+            </header>
+
+
+            <div class="d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="content">
+                    <h3>{% trans "Отчеты" %}</h3>
+
+
+                    <div class="reports">
+                        {% for report in reports %}
+                            <div class="report">
+                                <p>{{ report.date|date:"Y-m-d" }}</p>
+                                <a href="{{ report.file.url }}">{{ report.name }}</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section><!-- End About Section -->
+
+{% endblock content %}

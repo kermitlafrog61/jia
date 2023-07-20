@@ -1,0 +1,61 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href={% url 'main' %}>{% trans "Главная" %}</a></li>
+                <li><a href={% url 'gallery' %}>{% trans "Фотогалерея" %}</a></li>
+            </ol>
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+
+        <div class="container" data-aos="fade-up">
+
+            <header class="section-header">
+                <h2>{% trans "Фотогалерея" %}</h2>
+            </header>
+<!-- /gallery/id=${tag.id} -->
+
+            <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <div id="portfolio-flters">
+                        {% for tag in tags %}
+                            <a data="{{ tag.id }}" href="/gallery/?tag_id={{tag.id}}">{{ tag.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                {% for photo in photos %}
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-">
+                        <div class="portfolio-wrap">
+                            <img src={{ photo.image.url }} class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <div class="portfolio-links">
+                                    <a href={{ photo.image.url }} data-gallery="portfolioGallery"
+                                       class="portfokio-lightbox"><i class="bi bi-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            {% endfor %}
+
+
+            </div>
+
+        </div>
+
+    </section><!-- End Portfolio Section -->
+
+{% endblock content %}

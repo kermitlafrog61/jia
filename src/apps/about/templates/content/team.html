@@ -1,0 +1,56 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href={% url 'main' %}>{% trans "Главная" %}</a></li>
+                <li><a href="{% url 'team' %}">{% trans "Правление" %}</a></li>
+            </ol>
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section id="team" class="team">
+
+        <div class="container" data-aos="fade-up">
+
+            <header class="section-header">
+                <p class="mb-3">{% trans "Правление" %}</p>
+                <h2>{% trans "Правление - коллегиальный орган управления Ассоциации, осуществляющий контроль за деятельностью Исполнительного органа и стратегическое управление в соответствии с Уставом. Члены Совета Правления избираются на два года из состава Региональных советов"%}</h2>
+            </header>
+
+            <div style="width: 100%; overflow: auto;"
+                 class="gy-4">
+
+                <table>
+                    <tr>
+                        <th>{% trans "Должность" %}</th>
+                        <th>{% trans "ФИО" %}</th>
+                        <th>{% trans "Компания" %}</th>
+                        <th>{% trans "Регион" %}</th>
+                    </tr>
+                    {% for team in teams %}
+                        <tr>
+                            <td>{{ team.position }}</td>
+                            <td>{{ team.fullname }}</td>
+                            <td>{{ team.work_place }}</td>
+                            <td>{{ team.region }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+            </div>
+
+        </div>
+
+    </section><!-- End Team Section -->
+
+
+
+{% endblock content %}

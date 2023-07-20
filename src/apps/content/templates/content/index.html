@@ -1,0 +1,546 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+
+<!-- ======= Recent Blog Posts Section ======= -->
+
+<section id="main-hero" class="main-hero">
+    <div class="mt-5">
+        <div class="swiper mainPageHeroSlider">
+            <div class="swiper-wrapper">
+                {% for main_page in main_pages %}
+                <div class="swiper-slide hero-slide">
+                    <div class="bg"
+                        style="background: no-repeat radial-gradient(circle, rgba(2, 38, 156, 0.71) 0%, rgba(255,255,255,0.2) 100%), url({{ main_page.banner.url }}) center / cover;">
+                    </div>
+                    <div class="content container">
+                        <svg class="logo" width="100" height="60" version="1.1" viewBox="0 0 6300 6300">
+                            <g id="_1912482386224">
+                                <path class="fil0" fill="#ffffff"
+                                    d="M5203.16 2216.72l20.4 0c14.96,64.18 40,93.44 64.16,150.09l211.31 462.03 -571.33 0c6.66,-28.56 18.5,-48.83 29.4,-72.62l246.06 -539.49zm-2315.92 1622.12l-550.92 0 514.42 -1107.72c16.83,-40.78 32.81,-63.9 49.65,-103.37l190.89 -411.03 550.93 0 -234.42 500.14c-16.39,35.91 -29.53,67.17 -47.79,105.24l-472.76 1016.74zm1438.52 -581.52l-550.91 0c18.09,-34.2 28.26,-56.89 45.1,-97.7 69.43,-168.24 200.9,-417.38 278.42,-598.98l237.6 -507.15c17.28,-33.9 26.7,-61.03 44.16,-98.67 35.85,-77.31 124.1,-243.41 139.48,-309.41l550.91 0c-21.33,91.58 -560.32,1200.74 -649.99,1410.82l-94.78 201.09zm-4325.76 -163.22c0,405.24 86.23,794.63 224.44,1142.63 15.87,39.97 127.76,306.04 153.05,306.04 152.58,0 386.56,-135.59 499.84,-255.12 135.29,-142.76 141.94,-183.97 230.43,-330.68l303.69 -645.1c78.22,-162.67 158.28,-356.68 241.33,-513.64l540.72 0c-4.28,51.49 -44.53,105.63 -68.06,156.38l-146.33 312.76c-145.63,295.59 -297.33,656.96 -441.82,945.66 -25.33,50.6 -56.13,103.07 -86.47,148.17 -71.87,106.8 -118.78,170.75 -208.68,260.63 -146.97,146.97 -362.49,311.56 -568.77,359.62 3.62,43.48 10.15,33.6 36.19,65.84 22.22,27.5 31.67,34.92 52.58,59.64 84.1,99.44 122.71,131.32 209.69,218.8 201.34,202.53 438.78,356.02 688.91,494.54l220.74 105.73c297.33,124.45 733.78,238.88 1056.8,238.88 514.72,0 731.34,-18.21 1228.2,-189.91 46.75,-16.16 87.1,-32.58 131.68,-51.98 45.21,-19.66 89.12,-38.52 133.14,-60.7 174.35,-87.87 317.8,-174.87 470.15,-284.81 41.12,-29.65 66.01,-47.63 104.71,-78.95l201.65 -175.83c0.11,-0.09 11.09,-9.1 11.2,-9.2l175.61 -181.46c327.01,-353.03 597.98,-895.79 702.12,-1368.92 189.88,-862.71 19.96,-1690.21 -458.93,-2409.51 -159.96,-240.25 -331.26,-418.56 -539.01,-603.61 -383.73,-341.79 -882.89,-580.88 -1385.87,-685.18 -297.08,-61.6 -774.73,-93.61 -1079.81,-30.46 -47.81,9.9 -112.17,18.2 -156.55,27.1 -145.54,29.16 -310.03,70.46 -446.39,124.93 -186.22,74.41 -339.51,139.63 -512.03,242.93 -144.64,86.6 -205.83,133.08 -333.26,227.86 -24.23,18.02 -27.97,22.36 -50.13,41.7 -23.2,20.24 -32.39,23.85 -55.84,46.18l-198.94 188.75c-468.13,468.12 -879.95,1226.18 -879.95,2160.27z">
+                                </path>
+                            </g>
+                        </svg>
+                        <p class="title">
+                            {{ main_page.title }}
+                        </p>
+
+                        <p class="desc">
+                            {{ main_page.description|truncatechars:300 }}
+                        </p>
+                        <!-- Показывать если есть ссылка -->
+                        {% if main_page.link %}
+                        <a href={{ main_page.link }} class="more">
+                            <button>{% trans "Подробнее" %}</button>
+                        </a>
+                        {% else %}
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
+<section class="blured_bg">
+
+    <div class="container" data-aos="fade-up">
+
+        <div class="articles">
+
+            <h2>{% trans "Видение" %}</h2>
+
+            <p>
+                {% trans "В каждой семье Кыргызстана - один «зелёный» экспортер" %}
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section><!-- End Values Section -->
+
+<!-- ======= Values Section ======= -->
+
+<section>
+
+    <div class="container" data-aos="fade-up">
+
+        <div class="articles">
+
+            <h2>{% trans "Миссия" %}</h2>
+
+            <p>
+                {% trans "Развитие инновационного социально ответственного и открытого сообщества предпринимателей во благо развития Кыргызской Республики" %}
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section><!-- End Values Section -->
+
+<!-- ======= Features Section ======= -->
+<section id="features" class="features">
+
+    <div class="container" data-aos="fade-up">
+        <!-- Feature Tabs -->
+        <div class="row feture-tabs" data-aos="fade-up">
+            <div class="col-lg-6">
+                <h3>{% trans "Бизнес Ассоциация JIA" %}</h3>
+                <p>
+                    {% trans "Бизнес ассоциация JIA – это некоммерческая организация, миссией которой является развитие инновационного, социально ответственного и открытого сообщества предпринимателей во благо развития Кыргызской Республики. За свою деятельность наша ассоциация зарекомендовала себя надежным партнером бизнес сообщества страны. Отметим, что JIA работает более 15 лет." %}
+                    <br> <br>
+                    {% trans "Ассоциация объединяет более 1200 компаний, малого, среднего и крупного бизнеса не только в Кыргызстане, но и за ее пределами. JIA была создана по инициативам бизнесменов республики в 2006 году. На сегодняшний день - это мультисекторальная организация с профильными комитетами, клубами, центрами поддержки предпринимателей и лучшими экспертами." %}
+                    <br>
+
+                <h3>{% trans "Комитеты и клубы" %}</h3>
+                {% trans "Профильные комитеты — это система постоянно действующих отраслевых экспертно-аналитических площадок. Основная функция комитетов - это организация и проведение регулярных встреч в разных форматах для взаимодействия, обмена мнениями, опытом и информацией предпринимателей определенного сектора. Здесь обсуждают и решают ключевые вопросы развития отдельного сектора бизнеса. Помимо этого, встречи проводятся также с представителями государственных институтов в целях продвижения и защиты интересов бизнеса." %}
+                <br> <br>
+                {% trans "Клубы JIA – это объединение членов ассоциации в группы с едиными интересами. Это площадки регулярных формальных и неформальных встреч для внутреннего взаимоотношения членов ассоциации." %}
+
+                </p>
+            </div>
+
+            <div class="col-lg-6 d-flex justify-content-end">
+                <img src='https://ouch-cdn2.icons8.com/aYv5bGSrNZBgtRsEyArI_1lN9o-9C9hKy_xb8bDx1bk/rs:fit:358:456/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTgy/L2Q0N2QzNzYxLTFh/YTQtNDA1NC1hYmY4/LTFhZjM4ZTc4M2Rj/Mi5wbmc.png'
+                    class="img-fluid" alt="">
+            </div>
+
+        </div><!-- End Feature Tabs -->
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row feture-tabs" data-aos="fade-up">
+                    <div class="col-lg-6">
+                        <h3>{% trans "Комитеты" %}</h3>
+                    </div>
+                </div><!-- End Feature Tabs -->
+
+                <div class="col mt-lg-0 d-flex">
+                    <div class="row align-self-center gy-4">
+
+                        {% for committee in committees %}
+                        <div class="col-sm-6" data-aos="zoom-out" data-aos-delay="200">
+                            <div class="feature-box d-flex align-items-center">
+                                <i class="ri-{{ committee.icon }}"></i>
+                                <a href={% url 'organization' committee.id %}>
+                                    <h3>{{ committee.title }}</h3>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="row feture-tabs" data-aos="fade-up">
+                    <div class="col-lg-6">
+                        <h3>{% trans "Клубы" %}</h3>
+                    </div>
+                </div><!-- End Feature Tabs -->
+
+                <div class="col mt-lg-0 d-flex">
+                    <div class="row align-self-center gy-4">
+                        {% for club in clubs %}
+                        <div class="col-sm-6" data-aos="zoom-out" data-aos-delay="200">
+                            <div class="feature-box d-flex align-items-center">
+                                <i class="ri-{{ club.icon }}"></i>
+                                <a href={% url 'organization' club.id %}>
+                                    <h3>{{ club.title }}</h3>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section><!-- End Features Section -->
+
+<!-- RECLAM -->
+
+<header class="section-header" data-aos="fade-up">
+    <h2>{% trans "Коммерческие предложения резидентов JIA" %}</h2>
+</header>
+<section class="container reclam-mobile">
+    <div class="swiper reclamSlider">
+        <div class="swiper-wrapper">
+            {% for advert in adverts %}
+            <div class="swiper-slide">
+                <div class="reclam">
+                    <div style="position: relative;">
+                        <img src="{{ advert.image.url }}" alt="">
+                        <a class="more" href={{ advert.link }} target="_blank" rel="noopener noreferer">
+                            <button>
+                                {% trans "Подробнее" %}
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+<section class="reclam reclam-desc py-0 container mb-5" data-aos="fade-up">
+    {% for advert in adverts %}
+    <div style="position: relative;">
+        <img src="{{ advert.image.url }}" alt="">
+        <a class="more" href={{ advert.link }} target="_blank" rel="noopener noreferer">
+            <button>
+                {% trans "Подробнее" %}
+            </button>
+        </a>
+    </div>
+    {% endfor %}
+</section>
+
+<!-- ======= Counts Section ======= -->
+
+<section id="counts" class="counts blur_section">
+
+    <div class="container" data-aos="fade-up">
+
+
+        <header class="section-header">
+
+            <p>{% trans "Стратегия до 2027 года" %}</p>
+
+        </header>
+
+
+        <div class="row gy-4">
+
+
+            <div class="col-lg-3 col-sm-6">
+
+                <div class="count-box">
+
+                    <i class="bi bi-share-fill"></i>
+
+                    <div>
+
+                        <span data-purecounter-start="0" data-purecounter-end="15000" data-purecounter-duration="1"
+                            class="purecounter"></span>
+
+                        <p>{% trans "Предпринимателей в базе JIA (1500 из них зарубежные)" %}</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-sm-6">
+
+                <div class="count-box">
+
+                    <i class="bi bi-people-fill" style="color: #ee6c20;"></i>
+
+                    <div>
+
+                        <span data-purecounter-start="0" data-purecounter-end="4000" data-purecounter-duration="1"
+                            class="purecounter"></span>
+
+                        <p>{% trans "Жаратманов-резидентов из них 1000 женщин" %}</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-sm-6">
+
+                <div class="count-box">
+
+                    <span>BIF</span>
+
+                    <div>
+
+                        <p><b>BIF</b> - {% trans "Центрально-</br> азиатский Давос" %}</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-sm-6">
+
+                <div class="count-box">
+
+                    <i class="bi bi-bar-chart" style="color: #bb0852;"></i>
+
+                    <div>
+
+                        <p>{% trans "Институт улучшения бизнес климата" %}</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6 col-12" style="display: grid; grid-template: min-content 1fr / 1fr;">
+
+                <div class="count-box">
+
+                    <i class="ri-command-line" style="color: #bb0852;"></i>
+
+                    <div>
+
+                        <h3 class="m-0" style="color: #1a1b75;">{% trans "Платформа JIA" %}</h3>
+
+                    </div>
+
+                </div>
+
+
+                <div style="background-color: #fff; padding: 0 20px 20px;">
+
+                    <p>{% trans "В Бишкеке успешно функционирует платформа JIA в формате ONE-STOP-SHOP | Единого офиса" %}
+                    </p>
+
+                    <div class="row">
+
+                        <div class="col-12 col-sm-6 d-flex mb-1" style="grid-gap: 10px; color: #bb0852;">
+
+                            <i class="ri-fullscreen-line"></i>
+
+                            <div>
+
+                                <p style="font-size: 14px;" class="m-0">{% trans "2 экспоцентра" %}</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 d-flex mb-1" style="grid-gap: 10px; color: #bb0852;">
+
+                            <i class="ri-building-4-line"></i>
+
+                            <div>
+
+                                <p style="font-size: 14px;" class="m-0">{% trans "Конференц зал" %}</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 d-flex mb-1" style="grid-gap: 10px; color: #bb0852;">
+
+                            <i class="bi bi-person-workspace"></i>
+
+                            <div>
+
+                                <p style="font-size: 14px;" class="m-0">{% trans "Coworking JIA" %}</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 d-flex mb-1" style="grid-gap: 10px; color: #bb0852;">
+
+                            <i class="bi bi-tree-fill"></i>
+
+                            <div>
+
+                                <p style="font-size: 14px;" class="m-0">{% trans "Green office" %}</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 d-flex mb-1" style="grid-gap: 10px; color: #bb0852;">
+
+                            <i class="bi bi-briefcase-fill"></i>
+
+                            <div>
+
+                                <p style="font-size: 14px;" class="m-0">{% trans "Центры Поддержки Предпринимателей" %}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 d-flex mb-1" style="grid-gap: 10px; color: #bb0852;">
+
+                            <i class="bi bi-telephone-inbound"></i>
+
+                            <div>
+
+                                <p style="font-size: 14px;" class="m-0">{% trans "Call center" %}</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6 col-12" style="display: grid; grid-template: min-content 1fr / 1fr;">
+
+                <div class="count-box">
+
+                    <i class="bi bi-building" style="color: #0b8d10;"></i>
+
+                    <div>
+
+                        <h3 class="m-0" style="color: #1a1b75;">{% trans "Ишкер академиясы" %}</h3>
+
+                    </div>
+
+                </div>
+
+
+                <div style="background-color: #fff; padding: 0 20px 20px;">
+
+                    <div class="row">
+
+                        <div class="col-12 col-sm-6 d-flex mb-1" style="grid-gap: 10px; color: #0b8d10;">
+
+                            <i class="bi bi-person-video2"></i>
+
+                            <div>
+
+                                <p style="font-size: 14px;" class="m-0">
+                                    {% trans "<b>10 000</b> участников на мероприятиях, проводимых за пределами городов и областных центров, по развитию предпринимателей" %}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 d-flex mb-1" style="grid-gap: 10px; color: #0b8d10;">
+
+                            <i class="ri-service-fill"></i>
+
+                            <div>
+
+                                <p style="font-size: 14px;" class="m-0" >
+                                    {% trans "><b>500</b> членов прошли консультационное сопровождение" %}</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 d-flex mb-1" style="grid-gap: 10px; color: #0b8d10;">
+
+                            <i class="bi bi-megaphone-fill"></i>
+
+                            <div>
+
+                                <p style="font-size: 14px;" class="m-0">
+                                    {% trans "<b>500</b> участников программы Менторства JIA 25" %}</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-sm-6 d-flex mb-1" style="grid-gap: 10px; color: #0b8d10;">
+                            <i class="bi bi-person-workspace"></i>
+                            <div>
+                                <p style="font-size: 14px;" class="m-0">
+                                    {% trans "<b>1 500</b> участников зарубежных бизнес-туров" %}
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="offices_block" class="offices_block">
+
+    <div class="container" data-aos="fade-up">
+        <header class="section-header">
+            <h2>{% trans "Офисы JIA" %}</h2>
+        </header>
+        <div class="mobileOffices">
+            <div class="office_srcoll">
+                {% for contact in contacts %}
+                <div class="office-slide"
+                    style="height: 270px; min-width: 320px; width: 320px; background: url({{ contact.logo.url }}) center / cover;">
+                    <a href={% url 'contacts' contact.id %} class="office violet">
+                        <div>
+                            <h3>{{ contact.title }}</h3>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="offices_block_swiper swiper">
+            <div class="swiper-wrapper">
+                {% for contact in contacts %}
+                <div class="office-slide swiper-slide" style="background: url({{ contact.logo.url }}) center / cover;">
+                    <a href={% url 'contacts' contact.id %} class="office violet">
+                        <div>
+                            <h3>{{ contact.title }}</h3>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
+</section><!-- End Offices Section -->
+
+<!-- ======= About Section ======= -->
+
+<section id="about" class="about blur_section">
+    <div data-aos="zoom-out" class="container" data-aos-delay="200">
+        <iframe width="100%" height="515" src="https://www.youtube.com/embed/DL0d2D8vdg8" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+    </div>
+
+</section><!-- End About Section -->
+
+<!-- RECLAM -->
+
+
+{% endblock content %}

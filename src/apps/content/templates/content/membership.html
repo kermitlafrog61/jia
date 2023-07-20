@@ -1,0 +1,261 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+<section id="hero" class="hero d-flex align-items-center">
+    <div class="container py-4" style="position: relative; height: 100%; display: grid; grid-template: 1fr / 1fr 0;">
+        <div style="
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    height: 100%;
+                    z-index: -1;
+                    background: no-repeat linear-gradient(#012a7069, #012a70aa), url('https://cdn-ru.bitrix24.ru/b18675680/landing/f96/f969e0bdfc561b98c028e9d541a63b25/blog-20191001_1x.jpg') center / cover; 
+                    margin: 0 calc(100% - 100vw);" alt=""></div>
+        <div class="row flex-column-reverse flex-lg-row py-5 w-100 align-self-center"
+            style="height: min-content; background: rgba(0, 0, 0, 0.163); z-index: 1; position: relative;"
+            data-aos="fade-up" data-aos-delay="400">
+            <div class="hero-count">
+                <span>1200+</span>
+                {% trans "резидентов" %}
+            </div>
+            <div class="col-lg-9 d-flex flex-column justify-content-center">
+                <h1>{% trans "Как стать резидентом JIA?" %}</h1>
+                <h2>
+                    {% trans "Станьте частью предпринимательского движения в Кыргызстане" %}</h2>
+                <div>
+                    <div class="text-center text-lg-start">
+                        <a href="#bitrix"
+                            class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>{% trans "Оставить заявку" %}</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 hero-img d-flex align-items-center justify-content-end mb-4 mb-lg-0"
+                data-aos="zoom-out" data-aos-delay="200">
+                <svg style="width: 100%; height: 100%;" width="100" height="60" version="1.1" viewBox="0 0 6300 6300">
+                    <g id="_1912482386224">
+                        <path class="fil0" fill="#ffffff"
+                            d="M5203.16 2216.72l20.4 0c14.96,64.18 40,93.44 64.16,150.09l211.31 462.03 -571.33 0c6.66,-28.56 18.5,-48.83 29.4,-72.62l246.06 -539.49zm-2315.92 1622.12l-550.92 0 514.42 -1107.72c16.83,-40.78 32.81,-63.9 49.65,-103.37l190.89 -411.03 550.93 0 -234.42 500.14c-16.39,35.91 -29.53,67.17 -47.79,105.24l-472.76 1016.74zm1438.52 -581.52l-550.91 0c18.09,-34.2 28.26,-56.89 45.1,-97.7 69.43,-168.24 200.9,-417.38 278.42,-598.98l237.6 -507.15c17.28,-33.9 26.7,-61.03 44.16,-98.67 35.85,-77.31 124.1,-243.41 139.48,-309.41l550.91 0c-21.33,91.58 -560.32,1200.74 -649.99,1410.82l-94.78 201.09zm-4325.76 -163.22c0,405.24 86.23,794.63 224.44,1142.63 15.87,39.97 127.76,306.04 153.05,306.04 152.58,0 386.56,-135.59 499.84,-255.12 135.29,-142.76 141.94,-183.97 230.43,-330.68l303.69 -645.1c78.22,-162.67 158.28,-356.68 241.33,-513.64l540.72 0c-4.28,51.49 -44.53,105.63 -68.06,156.38l-146.33 312.76c-145.63,295.59 -297.33,656.96 -441.82,945.66 -25.33,50.6 -56.13,103.07 -86.47,148.17 -71.87,106.8 -118.78,170.75 -208.68,260.63 -146.97,146.97 -362.49,311.56 -568.77,359.62 3.62,43.48 10.15,33.6 36.19,65.84 22.22,27.5 31.67,34.92 52.58,59.64 84.1,99.44 122.71,131.32 209.69,218.8 201.34,202.53 438.78,356.02 688.91,494.54l220.74 105.73c297.33,124.45 733.78,238.88 1056.8,238.88 514.72,0 731.34,-18.21 1228.2,-189.91 46.75,-16.16 87.1,-32.58 131.68,-51.98 45.21,-19.66 89.12,-38.52 133.14,-60.7 174.35,-87.87 317.8,-174.87 470.15,-284.81 41.12,-29.65 66.01,-47.63 104.71,-78.95l201.65 -175.83c0.11,-0.09 11.09,-9.1 11.2,-9.2l175.61 -181.46c327.01,-353.03 597.98,-895.79 702.12,-1368.92 189.88,-862.71 19.96,-1690.21 -458.93,-2409.51 -159.96,-240.25 -331.26,-418.56 -539.01,-603.61 -383.73,-341.79 -882.89,-580.88 -1385.87,-685.18 -297.08,-61.6 -774.73,-93.61 -1079.81,-30.46 -47.81,9.9 -112.17,18.2 -156.55,27.1 -145.54,29.16 -310.03,70.46 -446.39,124.93 -186.22,74.41 -339.51,139.63 -512.03,242.93 -144.64,86.6 -205.83,133.08 -333.26,227.86 -24.23,18.02 -27.97,22.36 -50.13,41.7 -23.2,20.24 -32.39,23.85 -55.84,46.18l-198.94 188.75c-468.13,468.12 -879.95,1226.18 -879.95,2160.27z" />
+                    </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+</section><!-- End Hero -->
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about blured_bg">
+
+    <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+
+            <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="content">
+                    <h3>{% trans "Об организации" %}</h3>
+                    <p>
+                        {% trans "Бизнес ассоциация JIA создана в 2006 году инициативными предпринимателями из разных областей Кыргызстана. Сегодня ассоциация является платформой, предлагающей все условия для активного взаимодействия делового сообщества в Кыргызстане, объединяя более 1200 предпринимателей. JIA является единственной в Кыргызстане ассоциацией, которая состоит в членстве в Международной организации работодателей (International Organisation of Employers). В своей деятельности JIA успешно взаимодействует с государственными институтами (ЖК КР, МинЭконом. и Финансы, Совет по развитию бизнеса и др.), международными представительствами и донорскими организациями, посольствами (МОТ, ОБСЕ, ПРООН, JIСА, Институт бизнес-омбудсмена и т.д.) и  гражданским обществом." %}
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/DL0d2D8vdg8"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+        </div>
+    </div>
+
+</section><!-- End About Section -->
+
+<!-- ======= Features Section ======= -->
+<section id="features" class="features">
+
+    <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+            <h3>{% trans "МЫ ПОМОЖЕМ РАЗВИТЬ ВАШ БИЗНЕС" %}
+            </h3>
+            <p>{% trans "ЧТО ДАСТ ВАМ ПЛОЩАДКА JIA?" %}</p>
+        </header>
+
+        <!-- Feature Icons -->
+        <div class="row feature-icons" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-xl-4 text-center" data-aos="fade-right" data-aos-delay="100">
+                    <img src='https://ouch-cdn2.icons8.com/UnxPNt9psF-GPP4xwYEytCn9SCKaV6IXQqv7SjUApV8/rs:fit:348:456/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNDQx/LzlkYjQ3OTJhLWIx/MTAtNGJlNy04ZGJh/LTQzZDQ5ODZkOWJk/Mi5wbmc.png'
+                        class="img-fluid p-4" alt="">
+                </div>
+
+                <div class="col-xl-8 d-flex content">
+                    <div class="row align-self-center gy-4">
+
+                        <div class="col-md-6 icon-box" data-aos="fade-up">
+                            <i class="ri-booklet-fill"></i>
+                            <div>
+                                <h4>{% trans "ЦЕНТР ПОДДЕРЖКИ ПРЕДПРИНИМАТЕЛЕЙ В РЕГИОНАХ" %}</h4>
+                                <p>{% trans "Нуждаетесь в консультации по тем или иным вопросам? Обращайтесь в наши центры поддержки, где работают лучшие эксперты! Мы предоставляем консультации малому, среднему и крупному бизнесу по юридическим и финансовым вопросам, вопросам продвижения и эффективной работы с сотрудниками." %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                            <i class="ri-book-open-line"></i>
+                            <div>
+                                <h4>{% trans "ТРЕНИНГИ" %}</h4>
+                                <p>{% trans "Посещайте наши семинары и тренинги от специалистов и топ-менеджеров страны для развития и роста вашего бизнеса." %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                            <i class="ri-scales-3-line"></i>
+                            <div>
+                                <h4>{% trans "ЛОББИ" %}</h4>
+                                <p>{% trans "Защищайте свои интересы, как предприниматель. Инициируйте изменения в законопроекты, улучшайте инвестиционный климат в стране вместе с нами!" %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                            <i class="ri-links-line"></i>
+                            <div>
+                                <h4>{% trans "НЕТВОРКИНГ" %}</h4>
+                                <p>{% trans "Присоединяйтесь к нашей площадке предпринимателей со всех областей КР! Нас более 1200 предпринимателей. Получайте доступ к базе наших Жаратманов, с которыми вы можете познакомиться на мероприятиях JIA. Обменивайтесь идеями, находите среди них клиентов или партнеров." %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+                            <i class="ri-luggage-cart-fill"></i>
+                            <div>
+                                <h4>{% trans "БИЗНЕС-ТУРЫ" %}</h4>
+                                <p>{% trans "Отправляйтесь с нами в бизнес-поездки за рубеж с целью изучения опыта развитых стран и открытия новых рынков." %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+                            <i class="ri-briefcase-5-line"></i>
+                            <div>
+                                <h4>{% trans "STUDY-ТУРЫ" %}
+                                </h4>
+                                <p>{% trans "Посещайте успешные предприятия внутри страны для изучения опыта других компаний и налаживания сотрудничества. Участвуйте в нашем Бизнес-караване, на котором мы организуем прямые встречи с представителями и дистрибьюторами продуктов для способствования торговли в регионах." %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+                            <i class="ri-run-line"></i>
+                            <div>
+                                <h4>{% trans "БИЗНЕС-КЭМП" %}
+                                </h4>
+                                <p>{% trans "Участвуйте в наших лагерях, целью которых является обучение резидентов JIA в формальной и неформальной обстановке. Выезжайте с нами на природу, где мы можем коммуницировать в неформальной обстановке и улучшать отношения между членами нашей бизнес-ассоциации." %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+                            <i class="ri-service-line"></i>
+                            <div>
+                                <h4>
+                                    {% trans "КОРПОРАТИВНАЯ СОЦИАЛЬНАЯ ОТВЕСТВЕННОСТЬ (КСО)" %}
+                                </h4>
+                                <p>{% trans "В рамках JIA участвуйте в благотворительной помощи, экологических и социальных проектах. Распознайте, что значит КСО именно для вашего бизнеса и какими путями, мероприятиями вы можете улучшить окружающую среду, ваш район или город." %}
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div><!-- End Feature Icons -->
+
+    </div>
+
+</section><!-- End Features Section -->
+
+<!-- ======= Pricing Section ======= -->
+<section id="pricing" class="pricing">
+
+    <div class="container" data-aos="fade-up">
+
+        <div class="row gy-3" data-aos="fade-center">
+            {% for  member in members %}
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="box">
+                    <h3 style="color: #012970;">{% trans "Категория" %} {{ member.category }}</h3>
+                    <div class="price">{{ member.price }} <u>с</u><span> / {% trans "месяц" %}</span></div>
+                    <div class="district-price">{{ member.district_price }} <u>с</u><span> / {% trans "месяц (регионы)" %}</span></div>
+                    <img style="height: 250px; object-fit: contain;" src={{ member.logo.url }} class="img-fluid" alt="">
+                    <ul>
+                        {% for privileg in member.priveleges.all %}
+                        <li>{{ privileg.title }}</li>
+                        {% endfor %}
+                    </ul>
+                    <a href="{{ member.pdf_file.url }}" class="btn-buy">{% trans "Подробнее" %}</a>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+
+</section><!-- End Pricing Section -->
+
+<section class="reg_steps" id="reg_steps">
+    <header class="section-header">
+        <p>{% trans "КАК ПРОХОДИТ ПРОЦЕСС ВСТУПЛЕНИЯ?" %}</p>
+    </header>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="reg_step col-12 col-md-6 col-lg-4" data-aos="fade-center">
+                <h3>{% trans "1 ШАГ" %}</h3>
+                <h4>{% trans "НЕОБХОДИМЫЕ ДОКУМЕНТЫ ДЛЯ ВСТУПЛЕНИЯ В JIA" %}</h4>
+                <p>
+                    {% trans "Для вступления в бизнес-ассоциацию JIA вам необходимо:<br><br>-заполнить онлайн анкету с официальными данными (прикрепить файл или дать ссылку к нему); <br>-предоставить копию паспорта; копию свидетельства о гос. регистрации компании (или копию патента);<br>-предоставить реквизиты компании для оформления договора." %}
+                </p>
+            </div>
+            <div class="reg_step col-12 col-md-6 col-lg-4" data-aos="fade-center">
+                <h3>{% trans "2 ШАГ" %}</h3>
+                <h4>{% trans "РАССМОТРЕНИЕ ЗАЯВКИ" %}</h4>
+                <p>
+                    {% trans "Поданные вами заявления на вступление отправляются на рассмотрение членам Правления ассоциации 5 и 20 числах каждого месяца. В течении следующих 5 рабочих дней мы перезваниваем Вам и сообщаем о результатах." %}
+                </p>
+            </div>
+            <div class="reg_step col-12 col-md-6 col-lg-4" data-aos="fade-center">
+                <h3>{% trans "3 ШАГ" %}</h3>
+                <h4>{% trans "ПОДПИСАНИЕ ДОГОВОРА" %}</h4>
+                <p>
+                    {% trans "При вступлении в ассоциацию мы проводим с вами встречу, в рамках  которой проходит церемония вручения сертификата о членстве в JIA и подписание договора. При вступлении обязательно вносится предоплата на 6 месяцев. Сумма зависит от выбранной вами категории членства." %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="d-flex justify-content-center" id="bitrix">
+        <iframe src="https://b24-m91spu.bitrix24.site/crm_form_eol36/" frameborder="0" class="bitrixform">
+            ></iframe>
+    </div>
+</section>
+
+{% endblock content %}

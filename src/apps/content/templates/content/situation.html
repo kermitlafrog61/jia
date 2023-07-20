@@ -1,0 +1,45 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+        <ol>
+            <li><a href={% url 'main' %}>{% trans "Главная" %}</a></li>
+            <li><a href={% url 'situation' %}>{% trans "Положения" %}</a></li>
+        </ol>
+    </div>
+</section><!-- End Breadcrumbs -->
+
+<!-- ======= Documents Section ======= -->
+<section id="document" class="documents">
+    <div class="container" data-aos="fade-up">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for situation in situations %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src={{ situation.image.url }} class="card-img-top" alt="{{ situation.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ situation.title }}</h5>
+                        <p class="card-text">{{ situation.description|truncatechars:100 }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ situation.file.url }}" class="btn btn-primary" style="background-color: #1a1b75; color: white;">{% trans "Подробнее" %}</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col">
+                <p>{% trans "Нет доступных документов" %}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section><!-- End Documents Section -->
+
+{% endblock content %}

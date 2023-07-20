@@ -1,0 +1,163 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% load i18n %}
+
+{% block content %}
+
+<section class="breadcrumbs">
+  <div class="container">
+
+    <ol>
+      <li><a href={% url 'main' %}>{% trans "Главная" %}</a></li>
+      <li>{% trans "Наши услуги" %}</li>
+    </ol>
+  </div>
+</section><!-- End Breadcrumbs -->
+
+<!-- ======= F.A.Q Section ======= -->
+<section id="servies" class="servises">
+
+  <div class="container" data-aos="fade-up">
+
+    <header class="section-header">
+      <p>{% trans "Наши услуги" %}</p>
+    </header>
+
+    <div class="row">
+      <!-- F.A.Q List 1-->
+      <div class="services" id="faqlist1">
+        <div class="accordion accordion-flush" id="faqlist1">
+
+          <div class="accordion-item service-item">
+            <h2 class="accordion-header service-item-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faq-content-1">
+                {% trans "Информационная поддержка" %}
+              </button>
+            </h2>
+            <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+              <div class="accordion-body service-item-body">
+                {% trans "Мы оказываем информационную поддержку членам нашей ассоциации, используя современные инструменты: WhatsApp, Telegram рассылки, электронные почты. Также, JIA проводит визит вежливости, кураторы постоянно находятся на связи с членами ассоциации. Для нас важно, чтобы наши резиденты не пропускали актуальные для них новости, конкурсы и мероприятия." %}
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item service-item">
+            <h2 class="accordion-header service-item-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faq-content-2">
+                {% trans "Networking" %}
+              </button>
+            </h2>
+            <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+              <div class="accordion-body service-item-body">
+                {% trans "В бизнесе необходим качественный нетворк. Ассоциация предоставляет его своим резидентам. JIA организовывает тематические и глобальные мероприятия в Кыргызстане, где вы можете налаживать новые бизнес-контакты по всем регионам страны." %}
+
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item service-item">
+            <h2 class="accordion-header service-item-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faq-content-9">
+                {% trans "Обучающие программы" %}
+              </button>
+            </h2>
+            <div id="faq-content-9" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+              <div class="accordion-body service-item-body">
+                {% trans "Мы содействуем развитию бизнеса через развертывание площадки, в рамках которой проводятся различные тренинги и семинары, Mini MBA, масштабные форумы и выставки, направленные на усиление потенциала бизнеса." %}
+
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item service-item">
+            <h2 class="accordion-header service-item-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faq-content-4">
+                {% trans "BIF (инвестиции, B2B встречи)" %}
+              </button>
+            </h2>
+            <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+              <div class="accordion-body service-item-body">
+                {% trans "Мы проводим единственный в своем роде крупный Бишкекский инвестиционный бизнес-форум, или коротко - BIF дважды в год. Это ивент, на котором бизнесмены и вумены делятся и получают нужную информацию, контакты, знания и потенциальных инвесторов. Обсуждают и предлагают новые бизнес-идеи, рассказывают о трендах в бизнесе. " %}
+
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item service-item">
+            <h2 class="accordion-header service-item-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faq-content-5">
+                {% trans "Бизнес-поездки" %}
+              </button>
+            </h2>
+            <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+              <div class="accordion-body service-item-body">
+                {% trans "JIA организует двусторонние и многосторонние встречи, поездки в страны СНГ, Европы, Азии и США. Мы даём возможность открывать новые горизонты и расширять географию вашего бизнеса." %}
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item service-item">
+            <h2 class="accordion-header service-item-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faq-content-6">
+                {% trans "Эдвокаси\Лобби" %}
+              </button>
+            </h2>
+            <div id="faq-content-6" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+              <div class="accordion-body service-item-body">
+                {% trans "У нас имеется платформа для эффективного диалога и сотрудничества бизнеса с правительством. Как бизнес ассоциация, для нас важны интересы бизнес-сообществ страны и мы часто выступаем представителями в защите прав и интересов членов нашей ассоциации. " %}
+
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item service-item">
+            <h2 class="accordion-header service-item-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faq-content-7">
+                {% trans "Консультационная поддержка" %}
+              </button>
+            </h2>
+            <div id="faq-content-7" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+              <div class="accordion-body service-item-body">
+                {% trans "JIA предоставляет мощную консультационную поддержку посредством Центров Поддержки Предпринимательства (ЦПП). Центры: предоставляют информацию по предпринимательству, проводят консультации, организовывают тренинги по маркетингу, продажам, стратегическому и финансовому менеджменту, IT инструментам для развития бизнеса, управлению персоналом, правовым услугам и др. Здесь принимают участие лучшие в своей сфере специалисты. Данный проект реализуется при поддержке ОБСЕ в Кыргызстане." %}
+
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item service-item">
+            <h2 class="accordion-header service-item-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faq-content-8">
+                {% trans "Корпоративно-социальная ответственность" %}
+              </button>
+            </h2>
+            <div id="faq-content-8" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+              <div class="accordion-body service-item-body">
+                {% trans "Мы помогаем компаниям-партнерам выполнять социальные обязательства и понять в чем они заключаются. В нынешних реалиях, это недостаточно выпускать качественную продукцию или предоставлять услугу, оплачивая налоги. Важно брать ответственность за окружающую среду, экологию, работников и конечно же делать вклад в социальную сферу района, города, страны." %}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+  </div>
+
+</section><!-- End F.A.Q Section -->
+
+
+{% endblock content %}
