@@ -31,7 +31,7 @@ class News(models.Model):
         verbose_name="Название",
         blank=True, null=True,
     )
-    main_descriotion = models.TextField(
+    main_description = models.TextField(
         verbose_name="Main Описание",
         blank=True, null=True,
     )

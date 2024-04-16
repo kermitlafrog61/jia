@@ -1,9 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
-from decouple import config
 from . import models
-
-base_url = config('BASE_DOMAIN')
 
 
 class MemberShipPrivilegesAdmin(TranslationStackedInline):
@@ -84,7 +81,16 @@ class SituationAdmin(TranslationAdmin):
     list_display = ('title', 'file',)
 
 
-admin.site.register(models.Event)
+@admin.register(models.Organization)
+class OrganizationAdmin(TranslationAdmin):
+    list_display = ('title', 'category')
+
+
+@admin.register(models.ResidentJia)
+class ResidentJiaAdmin(TranslationAdmin):
+    list_display = ('id',)
+
+
 admin.site.register(models.Advertising)
 
 admin.site.site_header = "JIA"

@@ -5,7 +5,7 @@ from . import models
 
 @register(models.News)
 class NewsTranslationOption(TranslationOptions):
-    fields = ('title', 'description', 'main_descriotion',)
+    fields = ('title', 'description', 'main_description',)
 
 
 @register(models.NewsTag)

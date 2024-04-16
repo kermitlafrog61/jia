@@ -29,6 +29,14 @@ class FooterInfo(SingletonModel):
         verbose_name_plural = 'Footer Info'
 
 
+class ResidentJia(SingletonModel):
+    file = models.FileField(upload_to='file', verbose_name='PDF')
+
+    class Meta:
+        verbose_name = 'Резиденты Jia'
+        verbose_name_plural = 'Резиденты Jia'
+
+
 class FooterPhoneNumber(models.Model):
     number = models.CharField(max_length=255, verbose_name="Номер")
     footer_info = models.ForeignKey(
@@ -66,26 +74,6 @@ class Report(models.Model):
 
     def __str__(self):
         return f'{self.date} -- {self.name}'
-
-
-class Event(models.Model):
-    title = models.CharField(max_length=255, verbose_name="Название")
-    date = models.DateField(default=timezone.now, verbose_name="Дата")
-    description = models.TextField(verbose_name="Описание")
-    branch = models.ForeignKey(
-        "Branch", verbose_name="Филиал", on_delete=models.SET_NULL, null=True
-    )
-    image = models.ImageField(
-        upload_to="events", verbose_name="Изображение", null=True, blank=True
-    )
-
-    class Meta:
-        verbose_name = "Мероприятиe"
-        verbose_name_plural = "Мероприятия"
-        ordering = ('-id',)
-
-    def __str__(self):
-        return self.title
 
 
 class BusinessSupport(models.Model):
@@ -211,7 +199,6 @@ class ContactEmail(models.Model):
         return f"{self.contact.title} -- {self.email}"
 
 
-
 class MainPageBanner(models.Model):
     title = models.CharField(
         max_length=255, verbose_name='Название',
@@ -253,6 +240,9 @@ class Advertising(models.Model):
         verbose_name = 'Реклама'
         verbose_name_plural = 'Рекламы'
 
+    def __str__(self) -> str:
+        return self.link
+
 
 class Situation(models.Model):
     title = models.CharField(max_length=255, verbose_name="Название")
@@ -268,3 +258,27 @@ class Situation(models.Model):
         verbose_name = 'Положение'
         verbose_name_plural = 'Положения'
 
+
+class Organization(models.Model):
+    class Category(models.TextChoices):
+        club = "CLUB", "Клуб"
+        committee = "COMMITTEE", "Комитет"
+
+    category = models.CharField(
+        max_length=10,
+        verbose_name="Категория",
+        choices=Category.choices,
+    )
+    title = models.CharField(max_length=255, verbose_name="Имя организации")
+    description = RichTextField(verbose_name="Информация об организации")
+    image = models.ImageField(upload_to='organization/',
+                              verbose_name='Картинка организации')
+    icon = models.CharField(
+        max_length=127, verbose_name="Иконка (https://remixicon.com)")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Организация'
+        verbose_name_plural = 'Организации'

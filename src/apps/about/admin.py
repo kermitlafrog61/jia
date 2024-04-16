@@ -1,5 +1,5 @@
 from django.contrib import admin
-from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
+from modeltranslation.admin import TranslationAdmin
 
 from . import models
 
@@ -31,6 +31,6 @@ class TeamMemberAdmin(admin.ModelAdmin):
     list_display = ('fullname', 'position')
 
 
-@admin.site.register(models.State)
+@admin.register(models.State)
 class StateAdmin(admin.ModelAdmin):
     list_display = ('title',)

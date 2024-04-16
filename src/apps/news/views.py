@@ -7,7 +7,7 @@ from . import models, mixins
 
 class NewsListView(mixins.NewsViewMixin, generic.ListView):
     model = models.News
-    template_name = 'content/news.html'
+    template_name = 'news.html'
     context_object_name = 'news'
     slug_field = 'slug'
     paginate_by = 4
@@ -15,7 +15,7 @@ class NewsListView(mixins.NewsViewMixin, generic.ListView):
 
 class NewsDetailView(mixins.NewsViewMixin, generic.DetailView):
     model = models.News
-    template_name = 'content/news_detail.html'
+    template_name = 'news_detail.html'
     context_object_name = 'news'
 
 
@@ -29,7 +29,7 @@ def get_news_data(request, tag_id):
     queryset = models.News.objects.filter(tag=tag_id)
     return render(
         request=request,
-        template_name='content/news.html',
+        template_name='news.html',
         context={
             'news': queryset,
             'related_news': related_news,
@@ -46,7 +46,7 @@ class NewsDataView(mixins.NewsViewMixin, generic.DetailView):
 
 class SearchNewsView(mixins.NewsViewMixin, generic.ListView):
     model = models.News
-    template_name = 'content/news.html'
+    template_name = 'news.html'
     context_object_name = 'news'
     paginate_by = 4
 

@@ -2,16 +2,16 @@ import os
 import contextlib
 from pathlib import Path
 
-from decouple import config
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config("SECRET_KEY")
+BASE_URL = os.getenv('BASE_URL')
 
-DEBUG = config('DEBUG')
+SECRET_KEY = os.getenv("SECRET_KEY")
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
+DEBUG = os.getenv('DEBUG')
+
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='*').split(',')
 
 
 # Application definition
@@ -28,7 +28,7 @@ INSTALLED_APPS = [
 
     'apps.content',
     'apps.news',
-    'apps.organizations',
+    'apps.about',
 ]
 
 MIDDLEWARE = [
@@ -51,7 +51,7 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / 'content' /'templates',
             BASE_DIR / 'news' /'templates',
-            BASE_DIR / 'organizations' /'templates',
+            BASE_DIR / 'about' /'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -67,17 +67,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'src.wsgi.application'
 
+
+# Database
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_DB'),
-        'USER': config('POSTGRES_USER'),
-        'PASSWORD': config('POSTGRES_PASSWORD'),
-        'HOST': config('POSTGRES_HOST'),
+        'NAME': os.getenv('POSTGRES_DB'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
 
+
+# Password validation
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -94,14 +99,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'ru'
 
+# Internationalization
+
+LANGUAGE_CODE = 'ru'
 LANGUAGES = (
     ('ru', 'Russian'),
     ('en', 'English'),
     ('ky', 'Kyrgyz')
 )
-
 LOCALE_PATHS = (
     BASE_DIR / 'locale',
 )
@@ -110,6 +116,9 @@ TIME_ZONE = 'Asia/Bishkek'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
+
+# Static files (CSS, JavaScript, Images)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -120,11 +129,21 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = BASE_DIR / 'static'
 
+
+# Default primary key field type
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# CSRF settings
 
 CSRF_TRUSTED_ORIGINS = [
     'https://jia.kg',
 ]
+
+
+# CKEditor settings
+
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'

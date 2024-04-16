@@ -26,3 +26,8 @@ class JournalTranslationOption(TranslationOptions):
 @register(models.Partnership)
 class PartnershipTranslationOption(TranslationOptions):
     fields = ('description', 'memorandum', 'image')
+
+
+@register(models.State)
+class PartnerTranslationOption(TranslationOptions):
+    fields = ('title',)

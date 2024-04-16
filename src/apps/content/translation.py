@@ -13,16 +13,6 @@ class FooterInfoTranslationOption(TranslationOptions):
     fields = ('name',)
 
 
-@register(models.State)
-class PartnerTranslationOption(TranslationOptions):
-    fields = ('title',)
-
-
-@register(models.Event)
-class EventTranslationOption(TranslationOptions):
-    fields = ('title', 'description',)
-
-
 @register(models.BusinessSupport)
 class BusinessSupportTranslationOption(TranslationOptions):
     fields = ('title',)
@@ -51,3 +41,13 @@ class MainPageBannerTranslationOption(TranslationOptions):
 @register(models.Situation)
 class SituationTranslationOption(TranslationOptions):
     fields = ('title', 'description', 'file', 'image')
+
+
+@register(models.Organization)
+class OrganizationTranslationOption(TranslationOptions):
+    fields = ('title', 'description')
+
+
+@register(models.ResidentJia)
+class ResidentJiaTranslationOption(TranslationOptions):
+    fields = ('file',)

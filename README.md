@@ -20,7 +20,7 @@ Open [http://localhost](http://0.0.0.0:80) with your browser to see the result.
 docker-compose exec backend bash
 
 
- ./manage.py createsuperuser
+./manage.py createsuperuser
 
 ```
 

@@ -11,7 +11,9 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    path('', include('content.urls'))
+    path('', include('apps.content.urls')),
+    path('', include('apps.news.urls')),
+    path('', include('apps.about.urls')),
 )
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
