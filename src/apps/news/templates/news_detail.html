@@ -103,21 +103,22 @@
                     <article class="entry entry-single">
                         <div class="d-flex justify-content-end" style="grid-column-gap: 10px;">
                             <a style="font-size: 30px" type="button" role="button" title="Share on facebook"
-                                href="https://www.facebook.com/sharer/sharer.php?u=http://46.101.168.250{% url 'news_detail' news.id %}"
+                                href="https://www.facebook.com/sharer/sharer.php?u=https://46.101.168.250{% url 'news_detail' news.id %}"
                                 target="_blank" rel="noopener"><i class="ri-facebook-circle-fill"></i></a>
                             <a style="font-size: 30px"
-                                href="https://t.me/share/url?url=http://46.101.168.250{% url 'news_detail' news.id %}&text={{ news.title }}" target="_blank"
-                                rel="noopener noreferer"><i class="ri-telegram-fill"></i></a>
+                                href="https://t.me/share/url?url=https://46.101.168.250{% url 'news_detail' news.id %}&text={{ news.title }}"
+                                target="_blank" rel="noopener noreferer"><i class="ri-telegram-fill"></i></a>
                             <a style="font-size: 30px" type="button" role="button" title="Share on twitter"
-                                href="https://twitter.com/intent/tweet?url=http://46.101.168.250{% url 'news_detail' news.id %}" rel="noopener noreferer"><i
-                                    class="ri-twitter-line"></i></a>
-                            <a style="font-size: 30px" href="https://api.whatsapp.com/send?text=http://46.101.168.250{% url 'news_detail' news.id %}"
+                                href="https://twitter.com/intent/tweet?url=https://46.101.168.250{% url 'news_detail' news.id %}"
+                                rel="noopener noreferer"><i class="ri-twitter-line"></i></a>
+                            <a style="font-size: 30px"
+                                href="https://api.whatsapp.com/send?text=https://46.101.168.250{% url 'news_detail' news.id %}"
                                 target="_blank" rel="noopener noreferer"><i class="ri-whatsapp-line"></i></a>
                         </div>
                         {% if news.banner.url %}
-                            <img src={{ news.banner.url}} alt="" class="img-fluid">
+                        <img src={{ news.banner.url}} alt="" class="img-fluid">
                         {% else %}
-                            <img src="https://images.unsplash.com/photo-1610720684893-619cd7a5cde5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        <img src="https://images.unsplash.com/photo-1610720684893-619cd7a5cde5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                             alt="" class="img-fluid">
                         {% endif %}
                         <h2 class="entry-title">
@@ -126,8 +127,8 @@
 
                         <div class="entry-meta">
                             <ul>
-                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                        href={% url 'news_detail' news.slug %}>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href={%
+                                        url 'news_detail' news.slug %}>
                                         <time datetime="2020-01-01">{{ news.created }}</time>
                                     </a></li>
                             </ul>

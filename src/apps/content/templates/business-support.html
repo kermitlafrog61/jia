@@ -6,28 +6,29 @@
 
 {% block content %}
 
-    <section id="services" class="services">
+<section id="services" class="services">
 
 
-        <div class="container mt-5" data-aos="fade-up">
+    <div class="container mt-5" data-aos="fade-up">
 
 
-            <header class="section-header">
+        <header class="section-header">
 
-                <p>{% trans "Поддержка бизнеса" %}</p>
+            <p>{% trans "Поддержка бизнеса" %}</p>
 
 
-            </header>
+        </header>
 
-            <div class="row gy-4">
+        <div class="row gy-4">
 
-                <div class="services_links mb-4">
-                    <a href="http://bif.kg/" rel="noreferer noopener" target="_blank">{% trans "БИФ" %}</a>
-                    <a href="https://ishker.kg/ru" rel="noreferer noopener" target="_blank">{% trans "ЦПП" %}</a>
-                    <a href="https://ishker.kg/ru/page/minimba" rel="noreferer noopener" target="_blank">{% trans "Мини MBA" %}</a>
-                </div>
+            <div class="services_links mb-4">
+                <a href="https://bif.kg/" rel="noreferer noopener" target="_blank">{% trans "БИФ" %}</a>
+                <a href="https://ishker.kg/ru" rel="noreferer noopener" target="_blank">{% trans "ЦПП" %}</a>
+                <a href="https://ishker.kg/ru/page/minimba" rel="noreferer noopener" target="_blank">{% trans "Мини MBA"
+                    %}</a>
+            </div>
 
-                            <h3 style="  color: #012970;
+            <h3 style="  color: #012970;
   font-weight: 700;
   font-size: 24px;
   text-align: center;
@@ -35,34 +36,32 @@
                 {% trans "ПРОЕКТЫ ДЛЯ РАЗВИТИЯ БИЗНЕСА" %}
             </h3>
 
-                {% for busines in business %}
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-box blue">
+            {% for busines in business %}
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-box blue">
 
-                            <img style="object-fit: cover; height: 250px; margin: 0 -10px 10px;
+                    <img style="object-fit: cover; height: 250px; margin: 0 -10px 10px;
 
-                        border-radius: 5px 5px 0 0;"
-                                 src={{ busines.banner.url }}
-                                         alt="">
+                        border-radius: 5px 5px 0 0;" src={{ busines.banner.url }} alt="">
 
-                            <h3>{{ busines.title|truncatechars:60 }}</h3>
+                    <h3>{{ busines.title|truncatechars:60 }}</h3>
 
-                            <div class="d-flex align-items-end">
-                                <p>{{ busines.created }}</p>
-                                <a href={{ busines.link }} class="read-more"><span>{% trans "Подробнее" %}</span> <i
-                                        class="bi bi-arrow-right"></i></a>
-                            </div>
-
-                        </div>
+                    <div class="d-flex align-items-end">
+                        <p>{{ busines.created }}</p>
+                        <a href={{ busines.link }} class="read-more"><span>{% trans "Подробнее" %}</span> <i
+                                class="bi bi-arrow-right"></i></a>
                     </div>
-                {% endfor %}
 
+                </div>
             </div>
-
+            {% endfor %}
 
         </div>
 
 
-    </section><!-- End Services Section -->
+    </div>
+
+
+</section><!-- End Services Section -->
 
 {% endblock content %}
