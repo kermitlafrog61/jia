@@ -16,6 +16,7 @@ services:
     volumes:
       - static:/app/static
       - media:/app/media
+    entrypoint: /wsgi-entrypoint.sh
     env_file:
       - .env
     depends_on:
