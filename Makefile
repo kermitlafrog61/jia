@@ -1,14 +1,18 @@
+# Development commands
+
 run_dev:
 	docker compose -f docker-compose.dev.yml up -d
-
 build_dev:
 	docker compose -f docker-compose.dev.yml up -d --build
+logs_dev:
+	docker compose -f docker-compose.dev.yml logs
 
-run_prod:
-	docker compose -f docker-compose.prod.yml up -d --build
 
-create_superuser_dev:
-	docker compose -f docker-compose.dev.yml exec backend ./manage.py createsuperuser
+# Production
 
+run:
+	docker compose up -d
+build:
+	docker compose up -d --build
 logs:
-	docker compose -f docker-compose.prod.yml logs
+	docker compose logs
