@@ -17,6 +17,7 @@ This is the repository for the site hosting on jia.kg domain
     - [Local Machine](#local-machine)
     - [Hosting](#hosting)
     - [Admin pannel](#admin-pannel)
+    - [Backuping](#backuping)
   - [Contributing](#contributing)
   - [License](#license)
   - [Contact](#contact)
@@ -62,6 +63,18 @@ Wait untill all containers would start, then open jia.kg
 ### Admin pannel
 
 Open /admin/ URL and fill out, what you wrote in .env
+
+### Backuping
+
+1. Create backup dir
+```bash
+mkdir backup
+```
+2. Run backups
+```bash
+chmod +x backup.sh
+sudo ./backup.sh
+```
 
 ## Contributing
 
