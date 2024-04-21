@@ -146,3 +146,4 @@ media/
 dump.rdb
 static/
 todo_list
+backup/
