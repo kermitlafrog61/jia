@@ -413,8 +413,7 @@
                                 </p>
                                 <div class="col-6" style="display: flex; flex-direction: column;">
                                     {% for phone in footer.phones.all %}
-                                    <a class="h-100 d-flex align-items-center" href="tel:+996(555) 895 362" class="">{{
-                                        phone.number }}</a>
+                                    <a class="h-100 d-flex align-items-center" href="tel:{{ phone.number }}" class="">{{ phone.number }}</a>
                                     {% endfor %}
                                 </div>
                             </div>
