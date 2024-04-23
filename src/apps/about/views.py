@@ -51,10 +51,6 @@ class PartnershipView(generic.ListView):
     context_object_name = 'partnerships'
 
 
-class ServiceView(generic.TemplateView):
-    template_name = 'service.html'
-
-
 class CorporateCultureView(generic.TemplateView):
     template_name = 'corporate-culture.html'
 
