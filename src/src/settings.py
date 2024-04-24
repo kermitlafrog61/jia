@@ -214,7 +214,7 @@ CKEDITOR_CONFIGS = {
 
 # Logging configuration
 
-DEFAULT_LOGGING = {
+LOGGING = {
 'version': 1,
 'disable_existing_loggers': False,
 'handlers': {
