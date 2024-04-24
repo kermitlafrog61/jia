@@ -211,5 +211,25 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+
+# Logging configuration
+
+DEFAULT_LOGGING = {
+'version': 1,
+'disable_existing_loggers': False,
+'handlers': {
+    'console': {
+        'level': 'INFO',
+        'class': 'logging.StreamHandler',
+    },
+'loggers': {
+    'django': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
+}
+}
+
+
 with contextlib.suppress(ImportError):
     from .local_settings import *
