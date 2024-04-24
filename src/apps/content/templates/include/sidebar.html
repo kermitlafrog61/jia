@@ -24,7 +24,11 @@
     <div class="sidebar-item recent-posts">
         {% for related_new in related_news %}
             <div class="post-item clearfix">
-                <img src={{ related_new.banner.url }} alt="">
+                {% if related_new.banner %}
+                    <img src={{ related_new.banner.url }} alt="">
+                {% else %}
+                    <img src="https://images.unsplash.com/photo-1610720684893-619cd7a5cde5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
+                {% endif %}
                 <h4><a href={% url 'news_detail' related_new.slug %}>{{ related_new.title }}</a></h4>
                 <time datetime="2020-01-01">{{ related_new.created }}</time>
             </div>
