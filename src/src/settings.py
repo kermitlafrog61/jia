@@ -222,6 +222,7 @@ DEFAULT_LOGGING = {
         'level': 'INFO',
         'class': 'logging.StreamHandler',
     },
+},
 'loggers': {
     'django': {
         'handlers': ['console'],
@@ -229,7 +230,6 @@ DEFAULT_LOGGING = {
     },
 }
 }
-
 
 with contextlib.suppress(ImportError):
     from .local_settings import *
