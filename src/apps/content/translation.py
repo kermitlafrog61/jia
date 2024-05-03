@@ -23,11 +23,6 @@ class MemberShipPrivilegesTranslationOption(TranslationOptions):
     fields = ('title',)
 
 
-@register(models.Contact)
-class ContactPrivilegesTranslationOption(TranslationOptions):
-    fields = ('title',)
-
-
 @register(models.Report)
 class ReportTranslationOption(TranslationOptions):
     fields = ('name', 'file')

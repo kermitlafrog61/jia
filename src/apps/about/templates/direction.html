@@ -75,32 +75,32 @@
                 </div>
                 {% endfor %}
             </div>
-            {% for branche in branches %}
+            {% for branch in branches %}
 
             <div class="section-header" style="padding: 60px 0 40px;">
-                <p>{{ branche.title }}</p>
+                <p>{{ branch.title }}</p>
             </div>
 
             <div class="row gy-4 w-100">
-                {% for info in branche.branch.all %}
+                {% for member in branch.members.all %}
 
                 <div class="direction__small d-flex" data-aos="fade-up"
                     data-aos-delay="100">
                     <div class="member">
                         <div class="member-img">
-                            <img src={{ info.image.url }} class="img-fluid" alt="">
+                            <img src={{ member.image.url }} class="img-fluid" alt="">
                             <div class="social">
-                                {% if info.facebook %}
-                                    <a href={{ info.facebook }}><i class="bi bi-facebook"></i></a>
+                                {% if member.facebook %}
+                                    <a href={{ member.facebook }}><i class="bi bi-facebook"></i></a>
                                 {% else %}
                                     <a href="#"><i class="bi bi-facebook"></i></a>
                                 {% endif %}
                             </div>
                         </div>
                         <div class="member-info">
-                            <h4>{{ info.fullname }}</h4>
-                            <span>{{ info.position }}</span>
-                            <p>{{ info.description|truncatechars:60}}</p>
+                            <h4>{{ member.fullname }}</h4>
+                            <span>{{ member.position }}</span>
+                            <p>{{ member.description|truncatechars:60}}</p>
                         </div>
                     </div>
                 </div>

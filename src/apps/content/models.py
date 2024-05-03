@@ -141,64 +141,6 @@ class MemberShipPrivileges(models.Model):
         verbose_name_plural = 'Привилегии для резидента'
 
 
-class Contact(models.Model):
-    title = models.CharField(
-        max_length=255, verbose_name='Название',
-    )
-    logo = models.ImageField(
-        upload_to='contact', verbose_name='Логотип'
-    )
-    address = models.CharField(
-        max_length=255, verbose_name='Адрес',
-    )
-
-    def __str__(self):
-        return f'{self.title} -- {self.address}'
-
-    class Meta:
-        verbose_name = 'Контакт'
-        verbose_name_plural = 'Контакты'
-
-
-class ContactPhone(models.Model):
-    contact = models.ForeignKey(
-        Contact, on_delete=models.CASCADE,
-        related_name='contact_phone'
-    )
-    phone = models.CharField(
-        max_length=255, verbose_name='Телефон',
-    )
-
-    def __str__(self):
-        return f"{self.contact.title} -- {self.phone}"
-
-
-class ContactCellular(models.Model):
-    contact = models.ForeignKey(
-        Contact, on_delete=models.CASCADE,
-        related_name='contact_cellular'
-    )
-    phone = models.CharField(
-        max_length=255, verbose_name='Сотовые',
-    )
-
-    def __str__(self):
-        return f"{self.contact.title} -- {self.phone}"
-
-
-class ContactEmail(models.Model):
-    contact = models.ForeignKey(
-        Contact, on_delete=models.CASCADE,
-        related_name='contact_email'
-    )
-    email = models.EmailField(
-        max_length=255, verbose_name='Email',
-    )
-
-    def __str__(self):
-        return f"{self.contact.title} -- {self.email}"
-
-
 class MainPageBanner(models.Model):
     title = models.CharField(
         max_length=255, verbose_name='Название',
