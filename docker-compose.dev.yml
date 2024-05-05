@@ -22,6 +22,7 @@ services:
       - .env
     depends_on:
       - db
+      - redis
 
   nginx:
     restart: unless-stopped
@@ -37,6 +38,11 @@ services:
     depends_on:
       - db
       - backend
+
+  redis:
+    image: redis:alpine
+    expose:
+      - 6379
 
 volumes:
   static:
