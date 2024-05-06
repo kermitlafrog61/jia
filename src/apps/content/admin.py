@@ -13,30 +13,6 @@ class MemberShipAdmin(admin.ModelAdmin):
     inlines = [MemberShipPrivilegesAdmin]
 
 
-class ContactPhoneInline(admin.StackedInline):
-    model = models.ContactPhone
-    extra = 2
-
-
-class ContactCellularInline(admin.StackedInline):
-    model = models.ContactCellular
-    extra = 2
-
-
-class ContactEmailInline(admin.StackedInline):
-    model = models.ContactEmail
-    extra = 2
-
-
-@admin.register(models.Contact)
-class ContactAdmin(TranslationAdmin):
-    inlines = [
-        ContactPhoneInline,
-        ContactCellularInline,
-        ContactEmailInline,
-    ]
-
-
 @admin.register(models.Report)
 class ReportAdmin(TranslationAdmin):
     list_display = ('name',)

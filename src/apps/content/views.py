@@ -1,5 +1,7 @@
 from django.views import generic
 
+from apps.about.models import Branch
+
 from . import models
 
 
@@ -9,7 +11,7 @@ class MainView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['main_pages'] = models.MainPageBanner.objects.all()
-        context['contacts'] = models.Contact.objects.all()
+        context['branches'] = Branch.objects.all()
         context['adverts'] = models.Advertising.objects.all()
         context['clubs'] = models.Organization.objects.filter(category='CLUB')
         context['committees'] = models.Organization.objects.filter(
@@ -24,10 +26,10 @@ class MemberShipView(generic.ListView):
     context_object_name = 'members'
 
 
-class ContactView(generic.DetailView):
-    model = models.Contact
-    template_name = 'contacts.html'
-    context_object_name = 'contact'
+class BranchView(generic.DetailView):
+    model = Branch
+    template_name = 'branches.html'
+    context_object_name = 'branch'
 
 
 class ReportsView(generic.ListView):

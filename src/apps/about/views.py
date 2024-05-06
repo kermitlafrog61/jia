@@ -36,6 +36,7 @@ class DirectionView(generic.TemplateView):
             choice='director')
         context['hrs'] = models.TeamMember.objects.filter(choice='hr')
         context['branches'] = models.Branch.objects.all()
+        return context
 
 
 class PartnersView(generic.ListView):
@@ -48,10 +49,6 @@ class PartnershipView(generic.ListView):
     model = models.Partnership
     template_name = 'partnership.html'
     context_object_name = 'partnerships'
-
-
-class ServiceView(generic.TemplateView):
-    template_name = 'service.html'
 
 
 class CorporateCultureView(generic.TemplateView):

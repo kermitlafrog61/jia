@@ -103,7 +103,7 @@
                 <p>
                     {% trans "Бизнес ассоциация JIA – это некоммерческая организация, миссией которой является развитие инновационного, социально ответственного и открытого сообщества предпринимателей во благо развития Кыргызской Республики. За свою деятельность наша ассоциация зарекомендовала себя надежным партнером бизнес сообщества страны. Отметим, что JIA работает более 15 лет." %}
                     <br> <br>
-                    {% trans "Ассоциация объединяет более 1200 компаний, малого, среднего и крупного бизнеса не только в Кыргызстане, но и за ее пределами. JIA была создана по инициативам бизнесменов республики в 2006 году. На сегодняшний день - это мультисекторальная организация с профильными комитетами, клубами, центрами поддержки предпринимателей и лучшими экспертами." %}
+                    {% trans "Ассоциация объединяет более 1400 компаний, малого, среднего и крупного бизнеса не только в Кыргызстане, но и за ее пределами. JIA была создана по инициативам бизнесменов республики в 2006 году. На сегодняшний день - это мультисекторальная организация с профильными комитетами, клубами, центрами поддержки предпринимателей и лучшими экспертами." %}
                     <br>
 
                 <h3>{% trans "Комитеты и клубы" %}</h3>
@@ -495,12 +495,12 @@
         </header>
         <div class="mobileOffices">
             <div class="office_srcoll">
-                {% for contact in contacts %}
+                {% for branch in branches %}
                 <div class="office-slide"
-                    style="height: 270px; min-width: 320px; width: 320px; background: url({{ contact.logo.url }}) center / cover;">
-                    <a href={% url 'contacts' contact.id %} class="office violet">
+                    style="height: 270px; min-width: 320px; width: 320px; background: url({{ branch.logo.url }}) center / cover;">
+                    <a href={% url 'branches' branch.id %} class="office violet">
                         <div>
-                            <h3>{{ contact.title }}</h3>
+                            <h3>{{ branch.title }}</h3>
                         </div>
                     </a>
                 </div>
@@ -509,11 +509,11 @@
         </div>
         <div class="offices_block_swiper swiper">
             <div class="swiper-wrapper">
-                {% for contact in contacts %}
-                <div class="office-slide swiper-slide" style="background: url({{ contact.logo.url }}) center / cover;">
-                    <a href={% url 'contacts' contact.id %} class="office violet">
+                {% for branch in branches %}
+                <div class="office-slide swiper-slide" style="background: url({{ branch.logo.url }}) center / cover;">
+                    <a href={% url 'branches' branch.id %} class="office violet">
                         <div>
-                            <h3>{{ contact.title }}</h3>
+                            <h3>{{ branch.title }}</h3>
                         </div>
                     </a>
                 </div>

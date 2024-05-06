@@ -27,9 +27,9 @@
             <div class="row contact">
 
                 <div class="contact-img col-12 col-md-6"
-                     style="background: no-repeat linear-gradient(rgba(213, 224, 255, 0.359), rgba(26, 18, 87, 0.793)), url({{ contact.logo.url }}) center / cover;"
+                     style="background: no-repeat linear-gradient(rgba(213, 224, 255, 0.359), rgba(26, 18, 87, 0.793)), url({{ branch.logo.url }}) center / cover;"
                      alt="">
-                    {{ contact.title }}
+                    {{ branch.title }}
                 </div>
 
                 <div class="contact-content col-12 col-md-6">
@@ -38,7 +38,7 @@
                         <i class="ri-road-map-line"></i>
                         <div class="texts">
                             <h3>{% trans "Адрес" %}</h3>
-                            <p>{{ contact.address }}</p>
+                            <p>{{ branch.address }}</p>
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@
                         <i class="ri-phone-line"></i>
                         <div class="texts">
                             <h3>{% trans "Телефоны" %}</h3>
-                            {% for phone in contact.contact_phone.all %}
+                            {% for phone in branch.phones.all %}
                                 <a href="tel:{{ phone.phone }}" target="_blank"
                                    rel="noopener noreferr">{{ phone.phone }}</a>
                             {% endfor %}
@@ -57,7 +57,7 @@
                         <i class="ri-smartphone-fill"></i>
                         <div class="texts">
                             <h3>{% trans "Сотовые" %}</h3>
-                            {% for cellular in contact.contact_cellular.all %}
+                            {% for cellular in branch.cellulars.all %}
                                 <a href="tel:{{ cellular.phone }}" target="_blank"
                                    rel="noopener noreferr">{{ cellular.phone }}</a>
                             {% endfor %}
@@ -70,7 +70,7 @@
                             <h3>
                                 {% trans "Email" %}
                             </h3>
-                            {% for email in contact.contact_email.all %}
+                            {% for email in branch.emails.all %}
                                 <a href="mailto: {{ email.email }}" target="_blank"
                                    rel="noopener noreferr">{{ email.email }}</a>
                             {% endfor %}

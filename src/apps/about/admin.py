@@ -10,10 +10,29 @@ class GoverningBodyAdmin(TranslationAdmin):
         'fullname', 'position')
 
 
+class BranchPhoneInline(admin.StackedInline):
+    model = models.BranchPhone
+    extra = 2
+
+
+class BranchCellularInline(admin.StackedInline):
+    model = models.BranchCellular
+    extra = 2
+
+
+class BranchEmailInline(admin.StackedInline):
+    model = models.BranchEmail
+    extra = 2
+
+
 @admin.register(models.Branch)
 class BranchAdmin(TranslationAdmin):
-    list_display = ('title', 'mobile_number', 'work_number',
-                    'address', 'email', 'place')
+    list_display = ('title', 'address', 'place')
+    inlines = [
+        BranchPhoneInline,
+        BranchCellularInline,
+        BranchEmailInline,
+    ]
 
 
 @admin.register(models.Partnership)

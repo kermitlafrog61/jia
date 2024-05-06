@@ -35,7 +35,7 @@ class TeamMember(models.Model):
         choices=Category.choices, verbose_name='Выбор Должности в jia',
         default=Category.empl)
     branch = models.ForeignKey("Branch", verbose_name="Филиал",
-                               on_delete=models.SET_NULL, null=True, related_name='branch', blank=True)
+                               on_delete=models.SET_NULL, null=True, related_name='members', blank=True)
     facebook = models.URLField(verbose_name='Facebook', blank=True, null=True)
     description = models.TextField(
         verbose_name="Описание", blank=True, null=True, default=' ')
@@ -50,13 +50,11 @@ class TeamMember(models.Model):
 
 class Branch(models.Model):
     title = models.CharField(max_length=255, verbose_name="Название")
-    mobile_number = models.CharField(
-        max_length=255, verbose_name="Сотовый номер")
-    work_number = models.CharField(
-        max_length=255, verbose_name="Рабочий номер")
     address = models.CharField(max_length=255, verbose_name="Адрес")
-    email = models.EmailField(max_length=255, verbose_name="Адрес")
     place = models.PositiveIntegerField(default=0, blank=True, null=True,)
+    logo = models.ImageField(
+        upload_to='contact', verbose_name='Логотип'
+    )
 
     class Meta:
         verbose_name = "Филиал"
@@ -65,6 +63,45 @@ class Branch(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class BranchPhone(models.Model):
+    branch = models.ForeignKey(
+        Branch, on_delete=models.CASCADE,
+        related_name='phones'
+    )
+    phone = models.CharField(
+        max_length=255, verbose_name='Телефон',
+    )
+
+    def __str__(self):
+        return f"{self.branch.title} -- {self.phone}"
+
+
+class BranchCellular(models.Model):
+    branch = models.ForeignKey(
+        Branch, on_delete=models.CASCADE,
+        related_name='cellulars'
+    )
+    phone = models.CharField(
+        max_length=255, verbose_name='Сотовые',
+    )
+
+    def __str__(self):
+        return f"{self.branch.title} -- {self.phone}"
+
+
+class BranchEmail(models.Model):
+    branch = models.ForeignKey(
+        Branch, on_delete=models.CASCADE,
+        related_name='emails'
+    )
+    email = models.EmailField(
+        max_length=255, verbose_name='Email',
+    )
+
+    def __str__(self):
+        return f"{self.branch.title} -- {self.email}"
 
 
 class State(models.Model):

@@ -147,3 +147,5 @@ dump.rdb
 static/
 todo_list
 backup/
+docker/nginx/certbot/conf/*
+docker/nginx/certbot/www/*
