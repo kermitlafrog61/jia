@@ -757,7 +757,7 @@ msgstr "Отчеттор"
 
 #: apps/content/templates/base.html:236 apps/content/templates/base.html:260
 msgid "ру"
-msgstr "кг"
+msgstr "кр"
 
 #: apps/content/templates/base.html:266 apps/content/templates/contacts.html:14
 #: apps/content/templates/contacts.html:22
