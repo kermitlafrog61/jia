@@ -54,8 +54,7 @@ Wait untill all containers would start, then open localhost
 ### Hosting
 
 ```bash
-chmod +x init-letsencrypt.sh
-./init-letsencrypt.sh
+make certbot_setup
 make run
 ```
 Wait untill all containers would start, then open jia.kg
@@ -72,8 +71,7 @@ mkdir backup
 ```
 2. Run backups
 ```bash
-chmod +x backup.sh
-sudo ./backup.sh
+sudo make backup
 ```
 
 ## Contributing
