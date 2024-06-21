@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-23 16:51+0600\n"
+"POT-Creation-Date: 2024-06-21 12:51+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: apps/about/templates/partners.html:14
 #: apps/about/templates/partnership.html:13
 #: apps/about/templates/services.html:13 apps/about/templates/team.html:13
-#: apps/content/templates/contacts.html:13
+#: apps/content/templates/branches.html:13
 #: apps/content/templates/organization.html:10
 #: apps/content/templates/reports.html:13
 #: apps/content/templates/situation.html:13 apps/news/templates/news.html:15
@@ -73,11 +73,15 @@ msgstr ""
 "organizations (ILO, OSCE, UNDP, JICA, Institute of Business Ombudsman, "
 "etc.), embassies and civil society organizations"
 
-#: apps/about/templates/about.html:65 apps/content/templates/index.html:82
+#: apps/about/templates/about.html:42 apps/content/templates/index.html:534
+msgid "https://www.youtube.com/embed/D_xUsnDZpbA?si=rHxnahPdL3NkpNhb"
+msgstr "https://www.youtube.com/embed/_YaulxTOw_U?si=Fi6tOUjxERyZsRZX"
+
+#: apps/about/templates/about.html:59 apps/content/templates/index.html:82
 msgid "Миссия"
 msgstr "Mission"
 
-#: apps/about/templates/about.html:66 apps/content/templates/index.html:85
+#: apps/about/templates/about.html:60 apps/content/templates/index.html:85
 msgid ""
 "Развитие инновационного социально ответственного и открытого сообщества "
 "предпринимателей во благо развития Кыргызской Республики"
@@ -85,12 +89,12 @@ msgstr ""
 "Development of an innovative socially responsible and open community of "
 "entrepreneurs for the benefit of the development of the Kyrgyz Republic"
 
-#: apps/about/templates/about.html:73 apps/about/templates/about.html:89
+#: apps/about/templates/about.html:67 apps/about/templates/about.html:83
 #: apps/content/templates/index.html:128
 msgid "Комитеты"
 msgstr "Committees"
 
-#: apps/about/templates/about.html:74
+#: apps/about/templates/about.html:68
 msgid ""
 "Комитеты JIA — это система постоянно действующих отраслевых экспертно-"
 "аналитических площадок по ключевым вопросам развития делового сообщества. "
@@ -113,7 +117,7 @@ msgstr ""
 "influence the formation of the strategic agenda and positions of the "
 "business community on key development issues"
 
-#: apps/about/templates/about.html:112 apps/content/templates/index.html:152
+#: apps/about/templates/about.html:106 apps/content/templates/index.html:152
 msgid "Клубы"
 msgstr "Clubs"
 
@@ -656,8 +660,8 @@ msgstr "Report"
 msgid "ру"
 msgstr "en"
 
-#: apps/content/templates/base.html:266 apps/content/templates/contacts.html:14
-#: apps/content/templates/contacts.html:22
+#: apps/content/templates/base.html:266 apps/content/templates/branches.html:14
+#: apps/content/templates/branches.html:22
 msgid "Контакты"
 msgstr "Contacts"
 
@@ -677,6 +681,22 @@ msgstr "Email"
 msgid "Все права защищены"
 msgstr "All rights reserved"
 
+#: apps/content/templates/branches.html:40
+msgid "Адрес"
+msgstr "Address"
+
+#: apps/content/templates/branches.html:48
+msgid "Телефоны"
+msgstr "Phones"
+
+#: apps/content/templates/branches.html:59
+msgid "Сотовые"
+msgstr "Cellular"
+
+#: apps/content/templates/branches.html:71
+msgid "Email"
+msgstr "Email"
+
 #: apps/content/templates/business-support.html:25
 msgid "ЦПП"
 msgstr "ESC"
@@ -689,21 +709,30 @@ msgstr "Mini MBA"
 msgid "ПРОЕКТЫ ДЛЯ РАЗВИТИЯ БИЗНЕСА"
 msgstr "Business promotion projects"
 
-#: apps/content/templates/contacts.html:40
-msgid "Адрес"
-msgstr "Address"
+#: apps/content/templates/include/pagination.html:6
+#: apps/news/templates/pagination.html:7
+msgid "Предыдущий"
+msgstr "Previous"
 
-#: apps/content/templates/contacts.html:48
-msgid "Телефоны"
-msgstr "Phones"
+#: apps/content/templates/include/pagination.html:23
+#: apps/news/templates/pagination.html:24
+msgid "Следующий"
+msgstr "Next"
 
-#: apps/content/templates/contacts.html:59
-msgid "Сотовые"
-msgstr "Cellular"
+#: apps/content/templates/include/sidebar.html:6
+#: apps/news/templates/sidebar.html:6
+msgid "Поиск"
+msgstr "Search"
 
-#: apps/content/templates/contacts.html:71
-msgid "Email"
-msgstr "Email"
+#: apps/content/templates/include/sidebar.html:14
+#: apps/news/templates/sidebar.html:14
+msgid "Рубрики"
+msgstr "Categories"
+
+#: apps/content/templates/include/sidebar.html:23
+#: apps/news/templates/sidebar.html:23
+msgid "Последние"
+msgstr "Latest"
 
 #: apps/content/templates/index.html:64
 msgid "В каждой семье Кыргызстана - один «зелёный» экспортер"
@@ -1113,26 +1142,6 @@ msgstr ""
 #: apps/content/templates/situation.html:38
 msgid "Нет доступных документов"
 msgstr "No documents to be shown"
-
-#: apps/news/templates/pagination.html:7
-msgid "Предыдущий"
-msgstr "Previous"
-
-#: apps/news/templates/pagination.html:24
-msgid "Следующий"
-msgstr "Next"
-
-#: apps/news/templates/sidebar.html:6
-msgid "Поиск"
-msgstr "Search"
-
-#: apps/news/templates/sidebar.html:14
-msgid "Рубрики"
-msgstr "Categories"
-
-#: apps/news/templates/sidebar.html:23
-msgid "Последние"
-msgstr "Latest"
 
 #, fuzzy
 #~| msgid "Call center"

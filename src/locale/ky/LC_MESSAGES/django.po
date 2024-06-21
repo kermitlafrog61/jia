@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-23 16:51+0600\n"
+"POT-Creation-Date: 2024-06-21 12:51+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: apps/about/templates/partners.html:14
 #: apps/about/templates/partnership.html:13
 #: apps/about/templates/services.html:13 apps/about/templates/team.html:13
-#: apps/content/templates/contacts.html:13
+#: apps/content/templates/branches.html:13
 #: apps/content/templates/organization.html:10
 #: apps/content/templates/reports.html:13
 #: apps/content/templates/situation.html:13 apps/news/templates/news.html:15
@@ -69,11 +69,15 @@ msgstr ""
 "институту ж.б.у.с.) менен ийгиликтүү өз ара аракеттенет. .). д) жана "
 "жарандык коом."
 
-#: apps/about/templates/about.html:65 apps/content/templates/index.html:82
+#: apps/about/templates/about.html:42 apps/content/templates/index.html:534
+msgid "https://www.youtube.com/embed/D_xUsnDZpbA?si=rHxnahPdL3NkpNhb"
+msgstr "https://www.youtube.com/embed/1K2wWjp_bGg?si=sXo2sfxUslZ_BpfA"
+
+#: apps/about/templates/about.html:59 apps/content/templates/index.html:82
 msgid "Миссия"
 msgstr "Миссия"
 
-#: apps/about/templates/about.html:66 apps/content/templates/index.html:85
+#: apps/about/templates/about.html:60 apps/content/templates/index.html:85
 msgid ""
 "Развитие инновационного социально ответственного и открытого сообщества "
 "предпринимателей во благо развития Кыргызской Республики"
@@ -81,12 +85,12 @@ msgstr ""
 "Кыргыз Республикасынын жигердүү өнүгүсүү үчүн ишкерлердин инновациялык "
 "социалдык жоопкерчиликтүү жана ачык коомчулугун өнүктүрүү"
 
-#: apps/about/templates/about.html:73 apps/about/templates/about.html:89
+#: apps/about/templates/about.html:67 apps/about/templates/about.html:83
 #: apps/content/templates/index.html:128
 msgid "Комитеты"
 msgstr "Комитеттер"
 
-#: apps/about/templates/about.html:74
+#: apps/about/templates/about.html:68
 msgid ""
 "Комитеты JIA — это система постоянно действующих отраслевых экспертно-"
 "аналитических площадок по ключевым вопросам развития делового сообщества. "
@@ -109,7 +113,7 @@ msgstr ""
 "коомчулугунун стратегиялык күн тартибин жана позициясын түзүүгө таасир этет "
 "Өнүктүрүүнүн негизги маселелери боюнча"
 
-#: apps/about/templates/about.html:112 apps/content/templates/index.html:152
+#: apps/about/templates/about.html:106 apps/content/templates/index.html:152
 msgid "Клубы"
 msgstr "Клубдар"
 
@@ -759,8 +763,8 @@ msgstr "Отчеттор"
 msgid "ру"
 msgstr "кр"
 
-#: apps/content/templates/base.html:266 apps/content/templates/contacts.html:14
-#: apps/content/templates/contacts.html:22
+#: apps/content/templates/base.html:266 apps/content/templates/branches.html:14
+#: apps/content/templates/branches.html:22
 msgid "Контакты"
 msgstr "Байланыш"
 
@@ -780,6 +784,22 @@ msgstr "Электрондук почта"
 msgid "Все права защищены"
 msgstr "Бардык укуктар корголгон"
 
+#: apps/content/templates/branches.html:40
+msgid "Адрес"
+msgstr "Дарек"
+
+#: apps/content/templates/branches.html:48
+msgid "Телефоны"
+msgstr "Телефондор"
+
+#: apps/content/templates/branches.html:59
+msgid "Сотовые"
+msgstr "Уюлдук номурлар"
+
+#: apps/content/templates/branches.html:71
+msgid "Email"
+msgstr "Email"
+
 #: apps/content/templates/business-support.html:25
 msgid "ЦПП"
 msgstr "ИКК"
@@ -792,21 +812,30 @@ msgstr "Mini МВА"
 msgid "ПРОЕКТЫ ДЛЯ РАЗВИТИЯ БИЗНЕСА"
 msgstr "Бизнести өнүктүрүүгө багытталган долбоорлор"
 
-#: apps/content/templates/contacts.html:40
-msgid "Адрес"
-msgstr "Дарек"
+#: apps/content/templates/include/pagination.html:6
+#: apps/news/templates/pagination.html:7
+msgid "Предыдущий"
+msgstr "Мурунку"
 
-#: apps/content/templates/contacts.html:48
-msgid "Телефоны"
-msgstr "Телефондор"
+#: apps/content/templates/include/pagination.html:23
+#: apps/news/templates/pagination.html:24
+msgid "Следующий"
+msgstr "Кийинки"
 
-#: apps/content/templates/contacts.html:59
-msgid "Сотовые"
-msgstr "Уюлдук номурлар"
+#: apps/content/templates/include/sidebar.html:6
+#: apps/news/templates/sidebar.html:6
+msgid "Поиск"
+msgstr "Издөө"
 
-#: apps/content/templates/contacts.html:71
-msgid "Email"
-msgstr "Email"
+#: apps/content/templates/include/sidebar.html:14
+#: apps/news/templates/sidebar.html:14
+msgid "Рубрики"
+msgstr "Категориялар"
+
+#: apps/content/templates/include/sidebar.html:23
+#: apps/news/templates/sidebar.html:23
+msgid "Последние"
+msgstr "Акыркы"
 
 #: apps/content/templates/index.html:64
 msgid "В каждой семье Кыргызстана - один «зелёный» экспортер"
@@ -1210,26 +1239,6 @@ msgstr ""
 #: apps/content/templates/situation.html:38
 msgid "Нет доступных документов"
 msgstr "Документтер жок"
-
-#: apps/news/templates/pagination.html:7
-msgid "Предыдущий"
-msgstr "Мурунку"
-
-#: apps/news/templates/pagination.html:24
-msgid "Следующий"
-msgstr "Кийинки"
-
-#: apps/news/templates/sidebar.html:6
-msgid "Поиск"
-msgstr "Издөө"
-
-#: apps/news/templates/sidebar.html:14
-msgid "Рубрики"
-msgstr "Категориялар"
-
-#: apps/news/templates/sidebar.html:23
-msgid "Последние"
-msgstr "Акыркы"
 
 #, fuzzy
 #~| msgid "Call center"
