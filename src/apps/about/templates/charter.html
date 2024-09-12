@@ -28,7 +28,11 @@
 
 
       <div>
+        {% if LANGUAGE_CODE == 'en' %}
+        <iframe src="{% static 'assets/charter_en.pdf' %}" width="100%" height="1000px" frameborder="0"></iframe>
+        {% else %}
         <iframe src="{% static 'assets/charter.pdf' %}" width="100%" height="1000px" frameborder="0"></iframe>
+        {% endif %}
       </div>
 
     </div>
